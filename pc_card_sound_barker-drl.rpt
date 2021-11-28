@@ -1,0 +1,23 @@
+Drill report for C:\Users\akko\Documents\pc_card_sound_barker\pc_card_sound_barker.kicad_pcb
+Created on 28/11/2021 20:39:55
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'pc_card_sound_barker-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.400mm  0.0157"  (140 holes)
+    T2  0.650mm  0.0256"  (3 holes)
+
+    Total plated holes count 143
+
+
+Drill file 'pc_card_sound_barker-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

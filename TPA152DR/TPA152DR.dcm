@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPA152DR
+D Hi-Fi, Stereo Headphone Audio Amplifier
+K
+F http://www.ti.com/lit/gpn/tpa152
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,7 @@
+(fp_lib_table
+  (lib (name Yamaha)(type KiCad)(uri ${KIPRJMOD}/Yamaha)(options "")(descr ""))
+  (lib (name Z8601720ASG)(type KiCad)(uri ${KIPRJMOD}/Z8601720ASG)(options "")(descr ""))
+  (lib (name IC1F-68RD-1.27SF_52)(type KiCad)(uri ${KIPRJMOD}/Hirose/IC1F-68RD-1.27SF_52.pretty)(options "")(descr ""))
+  (lib (name TPA152DR)(type Legacy)(uri ${KIPRJMOD}/TPA152DR/TPA152DR.mod)(options "")(descr ""))
+  (lib (name EXB-D10C104J)(type KiCad)(uri ${KIPRJMOD}/EXB-D10C104J)(options "")(descr ""))
+)
