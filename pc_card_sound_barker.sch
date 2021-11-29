@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 2
+Sheet 1 1
 Title ""
 Date ""
 Rev ""
@@ -1291,14 +1291,6 @@ Text GLabel 6100 2950 2    50   UnSpc ~ 0
 A24
 Text GLabel 6100 3050 2    50   UnSpc ~ 0
 A25
-$Sheet
-S 4700 4600 1900 600 
-U 61F03A72
-F0 "resistors" 50
-F1 "resistors.sch" 50
-$EndSheet
-Text Notes 6350 4750 2    50   ~ 0
-Pull-down resistor networks for D[15::8]
 Wire Notes Line
 	4500 600  4500 7550
 Wire Notes Line
@@ -1382,10 +1374,10 @@ $EndComp
 Text GLabel 7250 5400 0    50   UnSpc ~ 0
 VCC
 $Comp
-L Device:R_Pack04_Split RN3
+L Device:R_Pack04_Split RN1
 U 1 1 61A465A5
 P 10050 4900
-F 0 "RN3" H 10138 4946 50  0000 L CNN
+F 0 "RN1" H 10138 4946 50  0000 L CNN
 F 1 "20k" H 10138 4855 50  0000 L CNN
 F 2 "Resistor_SMD:R_Array_Convex_4x1206" V 9970 4900 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/datasheet/2/315/AOC0000C14-1108062.pdf" H 10050 4900 50  0001 C CNN
@@ -1396,10 +1388,10 @@ F 6 "667-EXB-28V203JX" H 10050 4900 50  0001 C CNN "Mouser Part Number"
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R_Pack04_Split RN3
+L Device:R_Pack04_Split RN1
 U 2 1 61A5660A
 P 9450 4900
-F 0 "RN3" V 9243 4900 50  0000 C CNN
+F 0 "RN1" V 9243 4900 50  0000 C CNN
 F 1 "20k" V 9334 4900 50  0000 C CNN
 F 2 "Resistor_SMD:R_Array_Convex_4x1206" V 9370 4900 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/datasheet/2/315/AOC0000C14-1108062.pdf" H 9450 4900 50  0001 C CNN
@@ -1410,10 +1402,10 @@ F 6 "667-EXB-28V203JX" H 9450 4900 50  0001 C CNN "Mouser Part Number"
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R_Pack04_Split RN3
+L Device:R_Pack04_Split RN1
 U 3 1 61A630DD
 P 9400 6100
-F 0 "RN3" V 9193 6100 50  0000 C CNN
+F 0 "RN1" V 9193 6100 50  0000 C CNN
 F 1 "20k" V 9284 6100 50  0000 C CNN
 F 2 "Resistor_SMD:R_Array_Convex_4x1206" V 9320 6100 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/datasheet/2/315/AOC0000C14-1108062.pdf" H 9400 6100 50  0001 C CNN
@@ -1424,10 +1416,10 @@ F 6 "667-EXB-28V203JX" H 9400 6100 50  0001 C CNN "Mouser Part Number"
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R_Pack04_Split RN3
+L Device:R_Pack04_Split RN1
 U 4 1 61A641E1
 P 8650 6100
-F 0 "RN3" V 8443 6100 50  0000 C CNN
+F 0 "RN1" V 8443 6100 50  0000 C CNN
 F 1 "20k" V 8534 6100 50  0000 C CNN
 F 2 "Resistor_SMD:R_Array_Convex_4x1206" V 8570 6100 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/datasheet/2/315/AOC0000C14-1108062.pdf" H 8650 6100 50  0001 C CNN

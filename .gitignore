@@ -4,6 +4,8 @@ fp-info-cache
 *.swp
 *.bck
 
+*.step
+
 how-to-import.htm
 
 pc_card_sound_barker.xml

@@ -3,5 +3,4 @@
   (lib (name YMF_YAC)(type Legacy)(uri ${KIPRJMOD}/Yamaha/YMF_YAC.lib)(options "")(descr ""))
   (lib (name Z8601720ASG)(type Legacy)(uri ${KIPRJMOD}/Z8601720ASG/Z8601720ASG.lib)(options "")(descr ""))
   (lib (name TPA152DR)(type Legacy)(uri ${KIPRJMOD}/TPA152DR/TPA152DR.lib)(options "")(descr ""))
-  (lib (name EXB-D10C104J)(type Legacy)(uri ${KIPRJMOD}/EXB-D10C104J/EXB-D10C104J.lib)(options "")(descr ""))
 )
