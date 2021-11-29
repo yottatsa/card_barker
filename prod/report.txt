@@ -1,0 +1,12 @@
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-F_Cu.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-B_Cu.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-F_Paste.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-B_Paste.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-F_SilkS.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-B_SilkS.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-F_Mask.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-B_Mask.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-Edge_Cuts.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-F_Fab.gbr" created.
+Plot file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-B_Fab.gbr" created.
+Create Gerber job file "C:\Users\akko\Documents\pc_card_sound_barker\prod\pc_card_sound_barker-job.gbrjob"

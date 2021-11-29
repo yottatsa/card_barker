@@ -459,7 +459,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10338 5250 50 
 F 3 "https://www.mouser.co.uk/datasheet/2/212/1/KEM_C1090_X7R_ESD-1103328.pdf" H 10300 5400 50  0001 C CNN
 F 4 "KEMET" H 10300 5400 50  0001 C CNN "Manufacturer_Name"
 F 5 "C0805C105M3REC7210" H 10300 5400 50  0001 C CNN "Manufacturer_Part_Number"
-F 6 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 10300 5400 50  0001 C CNN "Mouser Part Number"
+F 6 "80-C0805C105M3RECLR" H 10300 5400 50  0001 C CNN "Mouser Part Number"
 F 7 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 10300 5400 50  0001 C CNN "Mouser Price/Stock"
 	1    10300 5400
 	1    0    0    -1  
@@ -476,7 +476,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8388 5950 50  
 F 3 "https://www.mouser.co.uk/datasheet/2/212/1/KEM_C1090_X7R_ESD-1103328.pdf" H 8350 6100 50  0001 C CNN
 F 4 "KEMET" H 8350 6100 50  0001 C CNN "Manufacturer_Name"
 F 5 "C0805C105M3REC7210" H 8350 6100 50  0001 C CNN "Manufacturer_Part_Number"
-F 6 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 8350 6100 50  0001 C CNN "Mouser Part Number"
+F 6 "80-C0805C105M3RECLR" H 8350 6100 50  0001 C CNN "Mouser Part Number"
 F 7 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 8350 6100 50  0001 C CNN "Mouser Price/Stock"
 	1    8350 6100
 	0    1    1    0   
@@ -491,7 +491,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8538 5400 50  
 F 3 "https://www.mouser.co.uk/datasheet/2/212/1/KEM_C1090_X7R_ESD-1103328.pdf" H 8500 5550 50  0001 C CNN
 F 4 "KEMET" H 8500 5550 50  0001 C CNN "Manufacturer_Name"
 F 5 "C0805C105M3REC7210" H 8500 5550 50  0001 C CNN "Manufacturer_Part_Number"
-F 6 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 8500 5550 50  0001 C CNN "Mouser Part Number"
+F 6 "80-C0805C105M3RECLR" H 8500 5550 50  0001 C CNN "Mouser Part Number"
 F 7 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 8500 5550 50  0001 C CNN "Mouser Price/Stock"
 	1    8500 5550
 	0    1    1    0   
@@ -550,7 +550,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10388 4750 50 
 F 3 "https://www.mouser.co.uk/datasheet/2/212/1/KEM_C1090_X7R_ESD-1103328.pdf" H 10350 4900 50  0001 C CNN
 F 4 "KEMET" H 10350 4900 50  0001 C CNN "Manufacturer_Name"
 F 5 "C0805C105M3REC7210" H 10350 4900 50  0001 C CNN "Manufacturer_Part_Number"
-F 6 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 10350 4900 50  0001 C CNN "Mouser Part Number"
+F 6 "80-C0805C105M3RECLR" H 10350 4900 50  0001 C CNN "Mouser Part Number"
 F 7 "https://www.mouser.co.uk/ProductDetail/80-C0805C105M3RECLR" H 10350 4900 50  0001 C CNN "Mouser Price/Stock"
 	1    10350 4900
 	0    -1   -1   0   
@@ -608,7 +608,10 @@ P 8200 5050
 F 0 "R2" H 8130 5004 50  0000 R CNN
 F 1 "100" H 8130 5095 50  0000 R CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 8130 5050 50  0001 C CNN
-F 3 "~" H 8200 5050 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/datasheet/2/315/AOA0000C334-1314047.pdf" H 8200 5050 50  0001 C CNN
+F 4 "Panasonic" H 8200 5050 50  0001 C CNN "Manufacturer_Name"
+F 5 "ERJ-U02F3901X" H 8200 5050 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "667-ERJ-U02F3901X" H 8200 5050 50  0001 C CNN "Mouser Part Number"
 	1    8200 5050
 	1    0    0    -1  
 $EndComp
@@ -639,7 +642,10 @@ P 10550 5900
 F 0 "R9" H 10480 5854 50  0000 R CNN
 F 1 "100" H 10480 5945 50  0000 R CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 10480 5900 50  0001 C CNN
-F 3 "~" H 10550 5900 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/datasheet/2/315/AOA0000C334-1314047.pdf" H 10550 5900 50  0001 C CNN
+F 4 "Panasonic" H 10550 5900 50  0001 C CNN "Manufacturer_Name"
+F 5 "ERJ-U02F3901X" H 10550 5900 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "667-ERJ-U02F3901X" H 10550 5900 50  0001 C CNN "Mouser Part Number"
 	1    10550 5900
 	-1   0    0    1   
 $EndComp
@@ -839,17 +845,6 @@ Wire Wire Line
 	6250 3150 6100 3150
 Text GLabel 6550 1850 3    50   UnSpc ~ 0
 GNDD
-$Comp
-L Device:Jumper_NO_Small JP1
-U 1 1 61998785
-P 6450 1750
-F 0 "JP1" H 6450 1935 50  0000 C CNN
-F 1 "3.3V" H 6450 1844 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 6450 1750 50  0001 C CNN
-F 3 "~" H 6450 1750 50  0001 C CNN
-	1    6450 1750
-	1    0    0    -1  
-$EndComp
 Text GLabel 6100 1850 2    50   Output ~ 0
 IORD#
 Wire Wire Line
@@ -944,11 +939,11 @@ P 7200 3050
 F 0 "R10" V 7407 3050 50  0000 C CNN
 F 1 "3.9k" V 7316 3050 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 7130 3050 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/datasheet/2/315/AOA0000C301-1488782.pdf" H 7200 3050 50  0001 C CNN
-F 4 "ERJ-XGNJ392Y" H 7200 3050 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "667-ERJ-XGNJ392Y" H 7200 3050 50  0001 C CNN "Mouser Part Number"
+F 3 "" H 7200 3050 50  0001 C CNN
+F 4 "" H 7200 3050 50  0001 C CNN "Manufacturer_Part_Number"
+F 5 "" H 7200 3050 50  0001 C CNN "Mouser Part Number"
 F 6 "https://www.mouser.co.uk/ProductDetail/667-ERJ-XGNJ392Y" H 7200 3050 50  0001 C CNN "Mouser Price/Stock"
-F 7 "Panasonic" H 7200 3050 50  0001 C CNN "Manufacturer_Name"
+F 7 "" H 7200 3050 50  0001 C CNN "Manufacturer_Name"
 	1    7200 3050
 	-1   0    0    1   
 $EndComp
@@ -1470,4 +1465,15 @@ Text Notes 8100 7650 0    50   ~ 0
 Nov 28 2021
 Text Notes 10550 7650 0    50   ~ 0
 Prototype One
+$Comp
+L Device:Jumper_NC_Small JP1
+U 1 1 61998785
+P 6450 1750
+F 0 "JP1" H 6450 1935 50  0000 C CNN
+F 1 "3.3V" H 6450 1844 50  0000 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 6450 1750 50  0001 C CNN
+F 3 "~" H 6450 1750 50  0001 C CNN
+	1    6450 1750
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

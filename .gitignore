@@ -1,0 +1,9 @@
+fp-info-cache
+*-bak
+.DS_Store
+*.swp
+*.bck
+
+how-to-import.htm
+
+pc_card_sound_barker.xml
