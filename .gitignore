@@ -3,6 +3,7 @@ fp-info-cache
 .DS_Store
 *.swp
 *.bck
+__pycache__
 
 *.step
 

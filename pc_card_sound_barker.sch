@@ -36,7 +36,7 @@ L IC1F-68RD-1.27SF_52:IC1F-68RD-1.27SF(52) J1
 U 1 1 6190467E
 P 5600 2550
 F 0 "J1" H 5600 4417 50  0000 C CNN
-F 1 "IC1F-68RD-1.27SF(52)" H 5600 4326 50  0000 C CNN
+F 1 "PCMCIA Connector" H 5600 4326 50  0000 C CNN
 F 2 "IC1F-68RD-1.27SF_52:IC1F-68RD-1.27SF(52)" H 5550 600 50  0001 L BNN
 F 3 "https://www.mouser.co.uk/datasheet/2/185/hirose_electric_hiros11303-1-1735566.pdf" H 5550 600 50  0001 L BNN
 F 4 "Hirose" H 5600 2550 50  0001 C CNN "Manufacturer_Name"
@@ -241,15 +241,9 @@ Text GLabel 3900 950  2    50   UnSpc ~ 0
 VCC
 Text GLabel 3900 6250 2    50   UnSpc ~ 0
 GNDD
-Text GLabel 6100 6200 2    50   Input ~ 0
-EE_SK
 Text GLabel 3900 5650 2    50   Output ~ 0
 EE_SK
 Text GLabel 3900 5950 2    50   Output ~ 0
-EE_DO
-Text GLabel 6100 6400 2    50   Output ~ 0
-EE_DI
-Text GLabel 6100 6300 2    50   Input ~ 0
 EE_DO
 Text GLabel 3900 5750 2    50   Input ~ 0
 EE_DI
@@ -269,7 +263,7 @@ $EndComp
 Text GLabel 6200 7300 3    50   UnSpc ~ 0
 GNDD
 Text GLabel 6200 6900 1    50   UnSpc ~ 0
-VCC
+VPP
 Text GLabel 3900 5850 2    50   UnSpc ~ 0
 VCC
 Text GLabel 3900 5350 2    50   Input ~ 0
@@ -320,8 +314,6 @@ Text GLabel 3900 3150 2    50   Output ~ 0
 IA0
 Text GLabel 3900 3250 2    50   Output ~ 0
 IA1
-Text GLabel 3900 3350 2    50   Output ~ 0
-IA2
 Text GLabel 7150 2050 0    50   Input ~ 0
 ICS0#
 Text GLabel 8150 1050 2    50   Input ~ 0
@@ -395,8 +387,6 @@ Text GLabel 10350 1150 2    50   Output ~ 0
 AOTL
 Text GLabel 10350 1050 2    50   Output ~ 0
 AOTR
-Text GLabel 3900 2950 2    50   Output ~ 0
-ICS1#
 $Comp
 L YMF_YAC:YMF289B-S U3
 U 1 1 6199F136
@@ -417,14 +407,6 @@ Text GLabel 10350 1450 2    50   UnSpc ~ 0
 AGND
 Text GLabel 10350 1250 2    50   UnSpc ~ 0
 VCOM
-Wire Wire Line
-	5700 6000 5250 6000
-Text GLabel 5250 6000 0    50   UnSpc ~ 0
-VCC
-Text GLabel 5300 6300 0    50   UnSpc ~ 0
-VCC
-Text GLabel 5300 6200 0    50   Input ~ 0
-WP#
 Text GLabel 10350 1650 2    50   UnSpc ~ 0
 VREFL
 Text GLabel 10350 1550 2    50   UnSpc ~ 0
@@ -837,10 +819,6 @@ Text GLabel 8850 2300 1    50   UnSpc ~ 0
 VCC
 Text GLabel 9200 2700 3    50   UnSpc ~ 0
 GNDD
-Text GLabel 6100 2650 2    50   UnSpc ~ 0
-VPP
-Text GLabel 5100 2650 0    50   UnSpc ~ 0
-VPP
 Wire Wire Line
 	6250 3150 6100 3150
 Text GLabel 6550 1850 3    50   UnSpc ~ 0
@@ -977,6 +955,7 @@ F 3 "https://www.mouser.co.uk/datasheet/2/281/1/SPEC_XRCPB33M868F0L00R0-2580714.
 F 4 "XRCPB33M868F0L00R0" H 7600 3050 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "81-XRCPB33M868F0L0R0" H 7600 3050 50  0001 C CNN "Mouser Part Number"
 F 6 "https://www.mouser.co.uk/ProductDetail/81-XRCPB33M868F0L0R0" H 7600 3050 50  0001 C CNN "Mouser Price/Stock"
+F 7 "Murata Electronics" H 7600 3050 50  0001 C CNN "Manufacturer_Name"
 	1    7600 3050
 	0    -1   -1   0   
 $EndComp
@@ -1014,7 +993,7 @@ L Power_Supervisor:MCP100-300D IC1
 U 1 1 62061EC7
 P 3250 7050
 F 0 "IC1" H 3021 7096 50  0000 R CNN
-F 1 "MCP100-300D" H 3021 7005 50  0001 R CNN
+F 1 "SV 3.3V" H 3021 7005 50  0001 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 2850 7200 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/tlv803e.pdf" H 2950 7300 50  0001 C CNN
 F 4 "TLV803EB33VDBZR" H 3250 7050 50  0001 C CNN "Manufacturer_Part_Number"
@@ -1056,8 +1035,6 @@ Wire Notes Line
 	8500 4450 6800 4450
 Wire Notes Line
 	6800 4450 6800 600 
-Wire Notes Line
-	4850 5750 6500 5750
 Wire Notes Line
 	6500 5750 6500 7600
 Wire Notes Line
@@ -1101,12 +1078,13 @@ L Oscillator:MAX7375AXR425 Y1
 U 1 1 61B41326
 P 1750 7100
 F 0 "Y1" H 1521 7146 50  0000 R CNN
-F 1 "MAX7375AXR425" H 1521 7055 50  0001 R CNN
+F 1 "4.19MHz" H 1521 7055 50  0001 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 2850 6750 50  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/MAX7375.pdf" H 1650 7100 50  0001 C CNN
 F 4 "MAX7375AXR425+T" H 1750 7100 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "700-MAX7375AXR425T" H 1750 7100 50  0001 C CNN "Mouser Part Number"
 F 6 "https://www.mouser.co.uk/ProductDetail/700-MAX7375AXR425T" H 1750 7100 50  0001 C CNN "Mouser Price/Stock"
+F 7 "Maxim Integrated" H 1750 7100 50  0001 C CNN "Manufacturer_Name"
 	1    1750 7100
 	1    0    0    -1  
 $EndComp
@@ -1175,8 +1153,6 @@ Text GLabel 3900 4350 2    50   Output ~ 0
 ATA_HRESET#
 Wire Wire Line
 	6050 7150 6050 7100
-Text GLabel 5300 6400 0    50   Input ~ 0
-CS#
 Text GLabel 3900 5550 2    50   Output ~ 0
 EE_CS
 $Comp
@@ -1184,7 +1160,7 @@ L Power_Supervisor:MCP100-450D IC3
 U 1 1 61BD8346
 P 7650 3950
 F 0 "IC3" H 7421 3996 50  0000 R CNN
-F 1 "MCP100-450D" H 7421 3905 50  0000 R CNN
+F 1 "SV 4.5V" H 7421 3905 50  0000 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 7250 4100 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/tlv809e.pdf" H 7350 4200 50  0001 C CNN
 F 4 "Texas Instruments" H 7650 3950 50  0001 C CNN "Manufacturer_Name"
@@ -1194,57 +1170,6 @@ F 7 "https://www.mouser.co.uk/ProductDetail/595-TLV809EA45DBZR" H 7650 3950 50  
 	1    7650 3950
 	1    0    0    -1  
 $EndComp
-$Comp
-L Memory_EEPROM:25LCxxx U2
-U 1 1 619EBE92
-P 5700 6300
-F 0 "U2" H 5700 6781 50  0000 C CNN
-F 1 "25LCxxx" H 5700 6690 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5700 6300 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21832H.pdf" H 5700 6300 50  0001 C CNN
-F 4 "25LC020A-E/SN" H 5700 6300 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "579-25LC020A-E/SN" H 5700 6300 50  0001 C CNN "Mouser Part Number"
-F 6 "https://www.mouser.co.uk/ProductDetail/579-25LC020A-E-SN" H 5700 6300 50  0001 C CNN "Mouser Price/Stock"
-	1    5700 6300
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xGxx:74LVC1G00 IC2
-U 1 1 61B9D486
-P 5400 7000
-F 0 "IC2" H 5421 6870 50  0000 R TNN
-F 1 "74LVC1G00" H 5330 6870 50  0000 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5_HandSoldering" H 5400 7000 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/sn74lvc1g38.pdf" H 5400 7000 50  0001 C CNN
-F 4 "Texas Instruments" H 5400 7000 50  0001 C CNN "Manufacturer_Name"
-F 5 "SN74LVC1G38DBVRE4" H 5400 7000 50  0001 C CNN "Manufacturer_Part_Number"
-F 6 "595-74LVC1G38DBVRE4" H 5400 7000 50  0001 C CNN "Mouser Part Number"
-	1    5400 7000
-	1    0    0    -1  
-$EndComp
-Text GLabel 5600 7150 2    50   UnSpc ~ 0
-GNDD
-Text GLabel 5650 6850 2    50   UnSpc ~ 0
-VCC
-Text GLabel 5650 7000 2    50   Output ~ 0
-CS#
-Text GLabel 5000 7000 1    50   Input ~ 0
-EE_CS
-Wire Wire Line
-	5100 6950 5100 7050
-Wire Wire Line
-	5100 7050 5000 7050
-Wire Wire Line
-	5000 7050 5000 7000
-Connection ~ 5100 7050
-Wire Wire Line
-	5600 7150 5400 7150
-Wire Wire Line
-	5400 7150 5400 7100
-Wire Wire Line
-	5650 6850 5400 6850
-Wire Wire Line
-	5400 6850 5400 6900
 NoConn ~ 3900 3850
 NoConn ~ 3900 3950
 NoConn ~ 3900 4050
@@ -1261,36 +1186,6 @@ NoConn ~ 3900 2250
 NoConn ~ 3900 2150
 NoConn ~ 3900 2050
 NoConn ~ 3900 1950
-Text GLabel 6100 2050 2    50   UnSpc ~ 0
-A17
-Text GLabel 5100 1850 0    50   UnSpc ~ 0
-A11
-Text GLabel 5100 2150 0    50   UnSpc ~ 0
-A13
-Text GLabel 6100 2150 2    50   UnSpc ~ 0
-A18
-Text GLabel 5100 2250 0    50   UnSpc ~ 0
-A14
-Text GLabel 6100 2350 2    50   UnSpc ~ 0
-A20
-Text GLabel 6100 2450 2    50   UnSpc ~ 0
-A21
-Text GLabel 6100 2250 2    50   UnSpc ~ 0
-A19
-Text GLabel 5100 2750 0    50   UnSpc ~ 0
-A16
-Text GLabel 6100 2750 2    50   UnSpc ~ 0
-A22
-Text GLabel 5100 2850 0    50   UnSpc ~ 0
-A15
-Text GLabel 5100 2950 0    50   UnSpc ~ 0
-A12
-Text GLabel 6100 2850 2    50   UnSpc ~ 0
-A23
-Text GLabel 6100 2950 2    50   UnSpc ~ 0
-A24
-Text GLabel 6100 3050 2    50   UnSpc ~ 0
-A25
 Wire Notes Line
 	4500 600  4500 7550
 Wire Notes Line
@@ -1300,14 +1195,6 @@ Wire Notes Line
 Wire Notes Line
 	650  600  4500 600 
 NoConn ~ 8150 1850
-Text GLabel 6100 6550 2    50   UnSpc ~ 0
-GNDD
-Wire Wire Line
-	5700 6600 6000 6600
-Wire Wire Line
-	6000 6600 6000 6550
-Wire Wire Line
-	6000 6550 6100 6550
 NoConn ~ 7800 3050
 NoConn ~ 3900 4550
 NoConn ~ 3900 4950
@@ -1454,7 +1341,7 @@ $EndComp
 Text Notes 7350 7500 0    50   ~ 0
 Card Barker OPL3 Sound Card
 Text Notes 8100 7650 0    50   ~ 0
-Nov 28 2021
+Nov 30 2021
 Text Notes 10550 7650 0    50   ~ 0
 Prototype One
 $Comp
@@ -1468,4 +1355,123 @@ F 3 "~" H 6450 1750 50  0001 C CNN
 	1    6450 1750
 	1    0    0    -1  
 $EndComp
+NoConn ~ 6100 3050
+NoConn ~ 6100 2950
+NoConn ~ 6100 2850
+NoConn ~ 6100 2750
+NoConn ~ 6100 2450
+NoConn ~ 6100 2350
+NoConn ~ 6100 2250
+NoConn ~ 6100 2150
+NoConn ~ 6100 2050
+NoConn ~ 5100 2150
+NoConn ~ 5100 2250
+NoConn ~ 5100 2750
+NoConn ~ 5100 2850
+NoConn ~ 5100 2950
+NoConn ~ 5100 1850
+NoConn ~ 3900 3350
+NoConn ~ 3900 2950
+Wire Wire Line
+	5400 6800 5400 6850
+Wire Wire Line
+	5650 6800 5400 6800
+Wire Wire Line
+	5400 7100 5400 7050
+Wire Wire Line
+	5600 7100 5400 7100
+Connection ~ 5100 7000
+Wire Wire Line
+	5000 7000 5000 6950
+Wire Wire Line
+	5100 7000 5000 7000
+Wire Wire Line
+	5100 6900 5100 7000
+Text GLabel 5000 6950 1    50   Input ~ 0
+EE_CS
+Text GLabel 5650 6950 2    50   Output ~ 0
+CS#
+Text GLabel 5650 6800 2    50   UnSpc ~ 0
+VCC
+Text GLabel 5600 7100 2    50   UnSpc ~ 0
+GNDD
+$Comp
+L 74xGxx:74LVC1G00 IC2
+U 1 1 61B9D486
+P 5400 6950
+F 0 "IC2" H 5421 6820 50  0000 R TNN
+F 1 "74LVC1G00" H 5330 6820 50  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5_HandSoldering" H 5400 6950 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/sn74lvc1g38.pdf" H 5400 6950 50  0001 C CNN
+F 4 "Texas Instruments" H 5400 6950 50  0001 C CNN "Manufacturer_Name"
+F 5 "SN74LVC1G38DBVRE4" H 5400 6950 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "595-74LVC1G38DBVRE4" H 5400 6950 50  0001 C CNN "Mouser Part Number"
+	1    5400 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 6000 5700 6000
+$Comp
+L Device:D_Small_ALT D1
+U 1 1 61ACC60B
+P 5200 7350
+F 0 "D1" H 5200 7557 50  0000 L TNN
+F 1 "D_Small_ALT" H 5200 7466 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-323_HandSoldering" V 5200 7350 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/datasheet/2/258/BAV19WS_BAV21WS_SOD_323_-2510325.pdf" V 5200 7350 50  0001 C CNN
+F 4 "MCC" H 5200 7350 50  0001 C CNN "Manufacturer_Name"
+F 5 "BAV19WS-TP" H 5200 7350 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "833-BAV19WS-TP" H 5200 7350 50  0001 C CNN "Mouser Part Number"
+	1    5200 7350
+	-1   0    0    1   
+$EndComp
+Text GLabel 6100 6200 2    50   Input ~ 0
+EE_SK
+Text GLabel 6100 6400 2    50   Output ~ 0
+EE_DI
+Text GLabel 6100 6300 2    50   Input ~ 0
+EE_DO
+Text GLabel 5100 7350 0    50   UnSpc ~ 0
+VCC
+Text GLabel 5300 6300 0    50   UnSpc ~ 0
+VPP
+Text GLabel 5300 6200 0    50   Input ~ 0
+WP#
+Text GLabel 5300 6400 0    50   Input ~ 0
+CS#
+$Comp
+L Memory_EEPROM:25LCxxx U2
+U 1 1 619EBE92
+P 5700 6300
+F 0 "U2" H 5700 6781 50  0000 C CNN
+F 1 "25LCxxx" H 5700 6690 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5700 6300 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21832H.pdf" H 5700 6300 50  0001 C CNN
+F 4 "25LC020A-E/SN" H 5700 6300 50  0001 C CNN "Manufacturer_Part_Number"
+F 5 "579-25LC020A-E/SN" H 5700 6300 50  0001 C CNN "Mouser Part Number"
+F 6 "https://www.mouser.co.uk/ProductDetail/579-25LC020A-E-SN" H 5700 6300 50  0001 C CNN "Mouser Price/Stock"
+F 7 "Microchip Technology " H 5700 6300 50  0001 C CNN "Manufacturer_Name"
+	1    5700 6300
+	1    0    0    -1  
+$EndComp
+Text GLabel 6100 6550 2    50   UnSpc ~ 0
+GNDD
+Wire Wire Line
+	5700 6600 6000 6600
+Wire Wire Line
+	6000 6600 6000 6550
+Wire Wire Line
+	6000 6550 6100 6550
+Wire Notes Line
+	4850 5750 6500 5750
+Text GLabel 5300 7350 2    50   UnSpc ~ 0
+VPP
+Text GLabel 5300 6050 0    50   UnSpc ~ 0
+VPP
+Wire Wire Line
+	5300 6050 5400 6050
+Wire Wire Line
+	5400 6050 5400 6000
+NoConn ~ 6100 2650
+NoConn ~ 5100 2650
 $EndSCHEMATC
