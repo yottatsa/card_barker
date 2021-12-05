@@ -1,4 +1,6 @@
 from enum import Flag, auto
+from typing import List, NamedTuple
+import itertools
 
 
 class ICR0(Flag):
@@ -271,6 +273,21 @@ class BCR2(Flag):
     PCMCIA_IO8 = 0  # fixme
 
 
+class BasicTuple(NamedTuple):
+
+    def format(self):
+        return [self.TPL_CODE, len(self.body)] + self.body
+
+    def __iter__(self):
+        return self.format().__iter__()
+
+class CISTPL_END(BasicTuple):
+    TPL_CODE = 0xFF
+    body = None
+
+    def __init__(self):
+        self.body = []
+
 def gen_config(revision_control=0, pm_timer=PM_TIMER_VAL):
     EEPROM = 0
     RESERVED = 0
@@ -329,11 +346,37 @@ def gen_config(revision_control=0, pm_timer=PM_TIMER_VAL):
     ]
 
 
+def gen_cis():
+    """
+    Table 2-2 Global CIS for Multiple Function PC Cards
+    CISTPL_DEVICE       01H
+    CISTPL_DEVICE_OC    1CH
+    CISTPL_LONGLINK_MFC 06H
+    CISTPL_VERS_1       15H
+    CISTPL_MANFID       20H
+    CISTPL_END          FFH
+
+    Table 2-3 Function-specific CIS for Multiple Function PC Cards
+    CISTPL_LINKTARGET       13H
+    CISTPL_CONFIG           1AH
+    CISTPL_CFTABLE_ENTRY    1BH
+    CISTPL_FUNCID           21H Recommended
+    CISTPL_FUNCE            22H Recommended
+    CISTPL_END          FFH
+    """
+    return [
+        # CISTPL_END(),
+    ]
+
+
 if __name__ == "__main__":
     config = gen_config()
-    print(config)
+    cis = gen_cis()
+    print(config, cis)
+    cis = list(itertools.chain(*cis))
+    padding = [0] * (208 - len(cis))
     with open("fw.bin", "wb+") as f:
-        for val in config + [0] * 208:
+        for val in config + cis + padding:
             if isinstance(val, Flag):
                 b = val.value
             else:

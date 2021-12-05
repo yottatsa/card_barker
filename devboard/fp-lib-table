@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name 92140-010LF)(type Legacy)(uri ${KIPRJMOD}/../Amphenol/92140-010LF.mod)(options "")(descr "")(disabled))
+  (lib (name Amphenol)(type KiCad)(uri ${KIPRJMOD}/../Amphenol)(options "")(descr ""))
+)
