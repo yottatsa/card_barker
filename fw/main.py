@@ -96,6 +96,7 @@ class ICR3(Flag):
 class CCRBaseAddress(Flag):
     """
     05h BCMCIA CCR Base Address Register
+    Matches CISTPL_CONFIG and points to CCR0
     """
 
     EN_CRR_A4 = auto()
@@ -326,7 +327,7 @@ class ZilogConfig(object):
         ICR1.UNSET,
         ICR2.PCMCIA_IO8,
         ICR3.UNSET,
-        CCRBaseAddress.CCR_BASE_0000,
+        CCRBaseAddress.EN_CRR_A9,
         EEPROM,
         EEPROM,
         EEPROM,
@@ -400,17 +401,15 @@ class ZilogConfig(object):
         else:
             self.config = list(self.TEMPLATE)
 
-class CISTuple:
 
+class CISTuple:
     def __new__(cls, *args, **kwargs):
         newdict = dict(cls.__dict__)
-        newdict.update({
-            'format': CISTuple.format,
-            '__iter__': CISTuple.__iter__,
-        })
+        newdict.update(
+            {"format": CISTuple.format, "__iter__": CISTuple.__iter__,}
+        )
         newcls = type(cls.__name__, (NamedTuple, tuple,), newdict)
         return newcls.__new__(newcls, *args, **kwargs)
-
 
     def format(self):
         payload = self.payload()
@@ -419,13 +418,19 @@ class CISTuple:
     def __iter__(self):
         return self.format().__iter__()
 
+
 class CISTPL_DEVICE(CISTuple):
     EMPTY = b"\x00"  # based on CFVEW211
     TPL_CODE = 0x01
     device_info: List[Any] = []
 
     def payload(self):
-        return list(self.device_info and itertools.chain(*self.device_info) or CISTPL_DEVICE.EMPTY) + [0xff]
+        return list(
+            self.device_info
+            and itertools.chain(*self.device_info)
+            or CISTPL_DEVICE.EMPTY
+        ) + [0xFF]
+
 
 class CISTPL_VERS_1(CISTuple):
     TPL_CODE = 0x15
@@ -438,19 +443,33 @@ class CISTPL_VERS_1(CISTuple):
     minor: int = 0x01
 
     def payload(self):
-        return list(itertools.chain((self.major, self.minor), self.manufacturer, (0,), self.product_name, (0,), self.lot_number, (0,), self.additional, (0,)))
+        return list(
+            itertools.chain(
+                (self.major, self.minor),
+                self.manufacturer,
+                (0,),
+                self.product_name,
+                (0,),
+                self.lot_number,
+                (0,),
+                self.additional,
+                (0,),
+            )
+        )
+
 
 class CISTPL_CONFIG(CISTuple):
-    TPL_CODE = 0x1a
+    TPL_CODE = 0x1A
     # TPCC_LAST Last Index
     # The Index Number of the final entry in the Card Configuration Table (the last entry encountered when scanning the CIS).
     # TODO: unclear
     last_index: int
 
     # TPCC_RADR/TPCC_RMSK
-    # TODO: not done
+    # is equal to CCRBaseAddress value on ZILOG
+    # TODO: not automated yet
     cr_base_address: int = 0
-    cr_mask: int = 0
+    presence_mask: int = 0
 
     class TPCC_SZ(Flag):
         TPCC_RASZ0 = auto()
@@ -463,10 +482,37 @@ class CISTPL_CONFIG(CISTuple):
         TPCC_RFSZ7 = auto()
         UNSET = 0
 
+    class Presence(Flag):
+        R0 = auto()
+        R1 = auto()
+        R2 = auto()
+        R3 = auto()
+        R4 = auto()
+        R5 = auto()
+        R6 = auto()
+        R7 = auto()
+        UNSET = 0
+        ZILOG = 255
+
     def payload(self):
         tpcc_sz = CISTPL_CONFIG.TPCC_SZ.UNSET
-        assert 0 < self.last_index < 2**6
-        return [tpcc_sz.value, self.last_index, 0, 0]
+        assert 0 < self.last_index < 2 ** 6
+        if self.cr_base_address > 65535:
+            tpcc_sz = tpcc_sz | CISTPL_CONFIG.TPCC_SZ.TPCC_RASZ1
+            sz = 3
+        elif self.cr_base_address > 255:
+            tpcc_sz = tpcc_sz | CISTPL_CONFIG.TPCC_SZ.TPCC_RASZ0
+            sz = 2
+        else:
+            sz = 1
+        return list(
+            itertools.chain(
+                (tpcc_sz.value, self.last_index),
+                self.cr_base_address.to_bytes(sz, "little"),
+                self.presence_mask.value.to_bytes(1, "big"),
+            )
+        )
+
 
 class CISTPL_MANFID(CISTuple):
     TPL_CODE = 0x20
@@ -474,7 +520,13 @@ class CISTPL_MANFID(CISTuple):
     manufacturer_info: int
 
     def payload(self):
-        return list(itertools.chain(self.manufacturer_code.to_bytes(2, 'big'), self.manufacturer_info.to_bytes(2, 'big')))
+        return list(
+            itertools.chain(
+                self.manufacturer_code.to_bytes(2, "big"),
+                self.manufacturer_info.to_bytes(2, "big"),
+            )
+        )
+
 
 class CISTPL_FUNCID(CISTuple):
     TPL_CODE = 0x21
@@ -484,11 +536,13 @@ class CISTPL_FUNCID(CISTuple):
     def payload(self):
         return [self.function_code, self.sysinit]
 
+
 class CISTPL_NO_LINK(CISTuple):
     TPL_CODE = 0x14
 
     def payload(self):
         return []
+
 
 class CISTPL_END(CISTuple):
     TPL_CODE = 0xFF
@@ -516,7 +570,7 @@ def gen_cis():
     CISTPL_FUNCE            22H Recommended
     CISTPL_END          FFH
     """
-    
+
     """
     ; Tuple Data for: (CISTPL_DEVICE)
 
@@ -562,16 +616,25 @@ def gen_cis():
     """
     return [
         CISTPL_DEVICE(),
-#        CISTPL_DEVICE_A(),
-        CISTPL_VERS_1(manufacturer=b"Matsushita Electric Industrial Co., Ltd.", product_name=b"Panasonic Sound Card", lot_number=b"CF-VEW211", additional=b"replica"),
-        CISTPL_CONFIG(last_index=4),
-#        CISTPL_CFTABLE_ENTRY(),
-#        CISTPL_CFTABLE_ENTRY(),
-#        CISTPL_CFTABLE_ENTRY(),
-#        CISTPL_CFTABLE_ENTRY(),
+        #        CISTPL_DEVICE_A(),
+        CISTPL_VERS_1(
+            manufacturer=b"Matsushita Electric Industrial Co., Ltd.",
+            product_name=b"Panasonic Sound Card",
+            lot_number=b"CF-VEW211",
+            additional=b"replica",
+        ),
+        CISTPL_CONFIG(
+            last_index=4,
+            cr_base_address=0x200,
+            presence_mask=CISTPL_CONFIG.Presence.ZILOG,
+        ),
+        #        CISTPL_CFTABLE_ENTRY(),
+        #        CISTPL_CFTABLE_ENTRY(),
+        #        CISTPL_CFTABLE_ENTRY(),
+        #        CISTPL_CFTABLE_ENTRY(),
         CISTPL_MANFID(0x3200, 0x0100),
         CISTPL_FUNCID(0),  # PANAKXL, as CFVEW211 uses invalid FF in the end
-#        CISTPL_CHECKSUM(), 
+        #        CISTPL_CHECKSUM(),
         CISTPL_NO_LINK(),
         CISTPL_END(b"yottatsa.name/cardbarker"),
     ]
@@ -588,7 +651,9 @@ if __name__ == "__main__":
     print(config)
     for tpl in cis:
         print(tpl)
-        print(" ".join("%02X" % i for i in tpl))
+        nibbles = ["%02X" % i for i in tpl]
+        print(" ".join(nibbles[:2]))
+        print(" ".join(nibbles[2:]))
     cis = list(itertools.chain(*cis))
     padding = [0] * (208 - len(cis))
     with open("fw.bin", "wb+") as f:
