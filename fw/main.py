@@ -419,6 +419,16 @@ class CISTuple:
         return self.format().__iter__()
 
 
+class CISTPL_RAW(tuple):
+    def __new__(cls, val):
+        return super(CISTPL_RAW, cls).__new__(
+            cls, (int(nibble, 16) for nibble in val.split())
+        )
+
+    def __str__(self):
+        return f"{self.__class__.__name__}(...)"
+
+
 class CISTPL_DEVICE(CISTuple):
     EMPTY = b"\x00"  # based on CFVEW211
     TPL_CODE = 0x01
@@ -573,44 +583,26 @@ def gen_cis():
 
     """
     ; Tuple Data for: (CISTPL_DEVICE)
-
     ; Tuple Data for: (CISTPL_DEVICE_A)
       17 02 
       D1 FF                                             ; ..
 
     ; Tuple Data for: (CISTPL_VERS_1)
-
     ; Tuple Data for: (CISTPL_CONFIG)
       1A 05 
       01 23 00 02 03                                    ; .#...
 
     ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-      1B 14 
-      E0 81 9D 11 55 1E FC 23 AC 61 30 05 09 88 03 03   ; ....U..#.a0.....
-      30 80 0E 08                                       ; 0...
-
     ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-      1B 0A 
-      21 08 AC 61 80 0E 09 88 03 03                     ; !..a......
-
     ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-      1B 0A 
-      22 08 AC 61 40 0F 09 88 03 03                     ; "..a@.....
-
     ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-      1B 0A 
-      23 08 AC 61 04 06 09 88 03 03                     ; #..a......
-
     ; Tuple Data for: (CISTPL_MANFID)
-
     ; Tuple Data for: (CISTPL_FUNCID)
-
     ; Tuple Data for: (CISTPL_CHECKSUM)
       10 05 
       47 FF B9 00 C9                                    ; G....
 
     ; Tuple Data for: (CISTPL_NO_LINK)
-
     ; Tuple Data for: (CISTPL_END)
 
     """
@@ -627,6 +619,27 @@ def gen_cis():
             last_index=4,
             cr_base_address=0x200,
             presence_mask=CISTPL_CONFIG.Presence.ZILOG,
+        ),
+        CISTPL_RAW(
+            """1B 14
+               E0 81 9D 11 55 1E FC 23 AC 61 30 05 09 88 03 03
+               30 80 0E 08
+               """
+        ),
+        CISTPL_RAW(
+            """1B 0A
+               21 08 AC 61 80 0E 09 88 03 03
+               """
+        ),
+        CISTPL_RAW(
+            """1B 0A
+               22 08 AC 61 40 0F 09 88 03 03
+               """
+        ),
+        CISTPL_RAW(
+            """1B 0A
+               23 08 AC 61 04 06 09 88 03 03
+               """
         ),
         #        CISTPL_CFTABLE_ENTRY(),
         #        CISTPL_CFTABLE_ENTRY(),
