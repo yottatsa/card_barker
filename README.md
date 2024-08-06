@@ -10,5 +10,5 @@
 Project status: prototype manufacturing
 
 ## PCBs
-![Card](https://raw.githubusercontent.com/yottatsa/card_barker/main/pc_card_sound_barker-render.jpg)
+![Card](https://raw.githubusercontent.com/yottatsa/card_barker/main/pc_card/pc_card-render.png)
 ![devboard](https://github.com/yottatsa/card_barker/raw/main/devboard/devboard-render.png)

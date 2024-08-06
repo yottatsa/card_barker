@@ -1,6 +1,0 @@
-(sym_lib_table
-  (lib (name IC1F-68RD-1.27SF_52)(type Legacy)(uri ${KIPRJMOD}/Hirose/IC1F-68RD-1.27SF_52.lib)(options "")(descr ""))
-  (lib (name YMF_YAC)(type Legacy)(uri ${KIPRJMOD}/Yamaha/YMF_YAC.lib)(options "")(descr ""))
-  (lib (name Z8601720ASG)(type Legacy)(uri ${KIPRJMOD}/Z8601720ASG/Z8601720ASG.lib)(options "")(descr ""))
-  (lib (name TPA152DR)(type Legacy)(uri ${KIPRJMOD}/TPA152DR/TPA152DR.lib)(options "")(descr ""))
-)

@@ -1,12 +1,13 @@
-fp-info-cache
+*.lck
+*-info-cache
 *-bak
 .DS_Store
 *.swp
 *.bck
 __pycache__
+*-backups
 
 *.step
 
 how-to-import.htm
 
-pc_card_sound_barker.xml
