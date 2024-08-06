@@ -1,4 +1,6 @@
 (sym_lib_table
-  (lib (name 92140-010LF)(type Legacy)(uri ${KIPRJMOD}/../Amphenol/92140-010LF.lib)(options "")(descr ""))
-  (lib (name IC1F-68RD-1.27SF_52)(type Legacy)(uri ${KIPRJMOD}/../Hirose/IC1F-68RD-1.27SF_52.lib)(options "")(descr ""))
+  (version 7)
+  (lib (name "92140-010LF")(type "Legacy")(uri "${KIPRJMOD}/../Amphenol/92140-010LF.lib")(options "")(descr ""))
+  (lib (name "IC1F-68RD-1.27SF_52")(type "Legacy")(uri "${KIPRJMOD}/../Hirose/IC1F-68RD-1.27SF_52.lib")(options "")(descr ""))
+  (lib (name "devboard-rescue")(type "KiCad")(uri "${KIPRJMOD}/devboard-rescue.kicad_sym")(options "")(descr ""))
 )
