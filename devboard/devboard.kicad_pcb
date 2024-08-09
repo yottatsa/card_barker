@@ -2715,6 +2715,17 @@
 			(remove_unused_layers no)
 			(uuid "d3fdf938-9748-43fd-b94d-de01c83f972c")
 		)
+		(model "${KIPRJMOD}/92140-010LF/92140-010LFc.stp"
+			(offset
+				(xyz 21 -9 4.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 0 0)
+			)
+		)
 	)
 	(footprint "Connector_FFC-FPC:Hirose_FH12-40S-0.5SH_1x40-1MP_P0.50mm_Horizontal"
 		(layer "F.Cu")
@@ -4937,7 +4948,7 @@
 			(at 1.905 -2.92 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "7e856e9a-1750-48c6-b79b-02ee34d536fd")
+			(uuid "90a0d496-2503-4018-8833-b20a58c67fc6")
 			(effects
 				(font
 					(size 1 1)
@@ -4948,7 +4959,7 @@
 		(property "Value" "CD2"
 			(at -0.046 5.842 90)
 			(layer "F.SilkS")
-			(uuid "918aa2f0-a435-44c6-8e50-066c37e3a9b3")
+			(uuid "38fb0178-ff68-4845-8857-595ef6db69a5")
 			(effects
 				(font
 					(size 1 1)
@@ -5007,7 +5018,7 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "d1c070bc-1251-4f78-85de-fa85bd3d7dff")
+			(uuid "fc285ae1-c7a8-4416-870d-2e5610e7f887")
 		)
 		(fp_circle
 			(center 0 0)
@@ -5018,7 +5029,7 @@
 			)
 			(fill none)
 			(layer "F.SilkS")
-			(uuid "f0183d90-8417-4f06-a0bf-99b50f339979")
+			(uuid "af1242fe-52fc-4f5f-9cd8-28660ab9ad7e")
 		)
 		(fp_line
 			(start -2.05 -2.05)
@@ -5028,7 +5039,7 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "181838d4-4dac-4607-91bb-9257b1c34b9c")
+			(uuid "fbb60667-a555-4b43-b15c-90585d96630d")
 		)
 		(fp_line
 			(start -2.05 2.05)
@@ -5038,7 +5049,7 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "4d5a97b3-ff2d-4bed-bc91-fc900d0cd000")
+			(uuid "ac9a25d1-e449-40ae-ac21-b0d54ad14dab")
 		)
 		(fp_line
 			(start 5.26 -2.05)
@@ -5048,7 +5059,7 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "6f8eb402-88df-4334-963e-f399652e99e8")
+			(uuid "78097601-5284-4558-8edd-78535a847430")
 		)
 		(fp_line
 			(start 5.26 2.05)
@@ -5058,7 +5069,7 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "154f7392-dd43-4d14-ada8-9e963129a45d")
+			(uuid "3867b4af-7a67-4f34-9b3b-12c44da554d0")
 		)
 		(fp_line
 			(start 0 0)
@@ -5068,7 +5079,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "543e4e41-046a-4cd8-9f75-e0849cb91a53")
+			(uuid "172a79d7-9bf9-4884-b0ba-02de70e3ed7a")
 		)
 		(fp_circle
 			(center 0 0)
@@ -5079,13 +5090,13 @@
 			)
 			(fill none)
 			(layer "F.Fab")
-			(uuid "1fc77da5-2db5-4353-a033-6371f733a0ff")
+			(uuid "3f240736-8460-4eda-ae2c-cfcec2ebd95e")
 		)
 		(fp_text user "A"
 			(at 1.91 1.2 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "01dc1a25-0564-4db3-aba5-e633b0b6756a")
+			(uuid "7038bb72-49e0-498f-96fd-c339c3569a63")
 			(effects
 				(font
 					(size 1 1)
@@ -5096,7 +5107,7 @@
 		(fp_text user "${REFERENCE}"
 			(at 1.905 -2.92 0)
 			(layer "F.Fab")
-			(uuid "884bd6b5-f564-4715-b2d7-9071c6121123")
+			(uuid "b6d353c7-ccec-4821-82d2-517b2bdac379")
 			(effects
 				(font
 					(size 1 1)
@@ -5107,7 +5118,7 @@
 		(fp_text user "A"
 			(at 1.91 1.2 0)
 			(layer "F.Fab")
-			(uuid "bd892423-90e7-4fa4-b83d-970484cf72ff")
+			(uuid "d9321a61-cce9-480d-b441-0002b94cdc5c")
 			(effects
 				(font
 					(size 1 1)
@@ -5124,7 +5135,7 @@
 			(net 85 "/I.CD2")
 			(pinfunction "A")
 			(pintype "passive")
-			(uuid "f964bf20-0fc5-44da-b9ce-75afa0787097")
+			(uuid "2da21992-4096-4349-bb0b-f37bb2f9461c")
 		)
 		(pad "2" thru_hole oval
 			(at 3.81 0)
@@ -5135,7 +5146,7 @@
 			(net 62 "/CD2")
 			(pinfunction "B")
 			(pintype "passive")
-			(uuid "58f7210b-db64-4f6e-b140-b87e3678bd23")
+			(uuid "5c9b994a-8902-46e5-bfc5-bd6ffa708bf6")
 		)
 		(model "${KICAD8_3DMODEL_DIR}/Diode_THT.3dshapes/D_DO-15_P3.81mm_Vertical_AnodeUp.wrl"
 			(offset

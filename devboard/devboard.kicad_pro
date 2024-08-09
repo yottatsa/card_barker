@@ -740,7 +740,7 @@
       "plot": "pcmcia/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "devboard.step",
       "svg": "",
       "vrml": ""
     },
