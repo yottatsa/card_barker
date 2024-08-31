@@ -1,0 +1,7 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"C15,C9,C7,C16,C5,C12,C8,C11,C2,C4,C10,C18,C3,C17,C14,C1,C13,C6";"C_0402_1005Metric";18;"8.2pF 0402 SMD Capacitor";;;
+2;"R24,R8,R19,R28,R32,R20,R12,R3,R16,R4,R7,R15,R27,R23,R11,R36,R31,R35";"R_0402_1005Metric";18;"249.0Ω 0402 SMD Resistor";;;
+3;"J1";"Hirose_FH12-40S-0.5SH_1x40-1MP_P0.50mm_Horizontal";1;"Hirose Electric Co Ltd FH12A-40S-0.5SH(55)";;;
+4;"R30,R17,R14,R9,R34,R29,R25,R22,R6,R18,R26,R5,R13,R33,R2,R21,R1,R10";"R_0402_1005Metric";18;"90.9kΩ 0402 SMD Resistor";;;
+5;"C22,C19,C21,C20";"C_1206_3216Metric_Pad1.33x1.80mm_HandSolder";4;"1.0µF, 1206 SMD Capacitor";;;
+6;"CP2,CP1";"CP_EIA-7343-31_Kemet-D";2;"593D106X9035D2TE3 or other 10uF Electrolytic 16V or higher";;;
