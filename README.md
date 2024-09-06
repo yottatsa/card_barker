@@ -12,3 +12,4 @@ Project status: devboard manufacturing and testing
 ## PCBs
 ![Card](https://raw.githubusercontent.com/yottatsa/card_barker/main/pc_card/pc_card-render.png)
 ![devboard](https://github.com/yottatsa/card_barker/raw/main/devboard/devboard-render.png)
+![pod adapter](https://github.com/yottatsa/card_barker/raw/main/devboard/fpchp-assembled.png)

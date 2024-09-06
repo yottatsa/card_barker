@@ -4379,7 +4379,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "46915177-16bd-4e42-8b87-e805333fd63f")
 		(property "Reference" "CP2"
 			(at 142.24 127 0)
@@ -5124,7 +5124,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c90d1c89-ad2a-45c3-a36d-9bc523773f1e")
 		(property "Reference" "CP1"
 			(at 133.985 127 0)

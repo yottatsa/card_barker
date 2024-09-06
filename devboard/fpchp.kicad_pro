@@ -480,7 +480,7 @@
       "idf": "",
       "netlist": "",
       "plot": "fpc-hp/",
-      "pos_files": "fpc-hp/",
+      "pos_files": "placement",
       "specctra_dsn": "",
       "step": "fpchp.step",
       "svg": "",

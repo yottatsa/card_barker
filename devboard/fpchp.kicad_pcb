@@ -4880,7 +4880,7 @@
 		(path "/46915177-16bd-4e42-8b87-e805333fd63f")
 		(sheetname "Root")
 		(sheetfile "fpchp.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -4.41 2.26)
 			(end 3.65 2.26)
@@ -19709,7 +19709,7 @@
 		(path "/c90d1c89-ad2a-45c3-a36d-9bc523773f1e")
 		(sheetname "Root")
 		(sheetfile "fpchp.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start 3.65 -2.26)
 			(end -4.41 -2.26)
