@@ -863,7 +863,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "pc_card.step",
       "svg": "",
       "vrml": ""
     },
