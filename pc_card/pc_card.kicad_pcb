@@ -1878,6 +1878,7 @@
 		)
 	)
 	(footprint "Capacitor_Tantalum_SMD:CP_EIA-7343-15_Kemet-W_Pad2.25x2.55mm_HandSolder"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000619c506a")
 		(at 118.11 90.424 45)

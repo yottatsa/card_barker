@@ -2,7 +2,7 @@
 
 *WARNING: this project has manufacturability issues: Zilog and two Yamaha chips are virtually unobtainable*
 
-* PCMCIA interface: Zilog Z8601720ASG
+* PCMCIA interface: [Zilog Z8601720ASG](https://investor.zilog.com/index.php?option=com_product&Itemid=26&task=docs&businessLine=&parent_id=139&familyId=13&productId=Z86017)
 * OPL3: Yamaha YMF289B-S and YAC516-E
 * Amp: [Texas Instruments TPA152DR](http://www.ti.com/lit/gpn/tpa152)
 

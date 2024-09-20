@@ -13536,6 +13536,16 @@
 		)
 		(uuid "fff397a2-4bb8-49f6-994d-d5d27bb708f2")
 	)
+	(text "P1=J4 J=CLK2\nP2=J5 K=CLK3\nP3=J3 L=CLK1\nP4=J6 M=CLK4"
+		(exclude_from_sim no)
+		(at 117.348 68.326 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1f2379f7-5e1e-4476-b18e-5a128b03e6e2")
+	)
 	(label "CLK3"
 		(at 168.91 87.63 0)
 		(fields_autoplaced yes)
@@ -17142,7 +17152,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "CD2"
+		(property "Value" "CD1"
 			(at 264.16 105.41 0)
 			(effects
 				(font
@@ -18496,7 +18506,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "CD1"
+		(property "Value" "CD2"
 			(at 264.16 102.87 0)
 			(effects
 				(font
