@@ -1,7 +1,7 @@
-Makefilesources = devboard.pld
+sources = devboard.pld
 
 all: $(sources:.pld=.jed)
-	@ls -lh $^
+	@ls -lh "$^"
 
 GALasm:
 	git submodule update $@

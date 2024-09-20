@@ -6,7 +6,7 @@
 * OPL3: Yamaha YMF289B-S and YAC516-E
 * Amp: [Texas Instruments TPA152DR](http://www.ti.com/lit/gpn/tpa152)
 
-Project status: hw rev 2 is in manufacturing
+Project status: devboard is working, card hw rev 2 is in manufacturing
 
 ## PCBs
 ![Card](https://raw.githubusercontent.com/yottatsa/card_barker/main/pc_card/pc_card-render.png)
