@@ -12,3 +12,7 @@ Project status: devboard is working, card hw rev 2 is in manufacturing
 ![Card](https://raw.githubusercontent.com/yottatsa/card_barker/main/pc_card/pc_card-render.png)
 ![devboard](https://github.com/yottatsa/card_barker/raw/main/devboard/devboard-render.png)
 ![pod adapter](https://github.com/yottatsa/card_barker/raw/main/devboard/fpchp-assembled.png)
+
+Related projects
+
+* [FMC-98 reverse engineering](https://github.com/AL-255/A2P1)
