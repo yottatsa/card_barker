@@ -1,6 +1,8 @@
 from enum import Flag, auto
 from typing import Any, List, NamedTuple
+from types import new_class
 import itertools
+import sys
 
 
 def rbyte(b):
@@ -183,7 +185,7 @@ class W1CR(Flag):
     NRWAIT6 = auto()
     NRWAIT7 = auto()
     DISABLED = DIS_PAC1
-    X7T = NRWAIT7 & NRWAIT6
+    X7T = NRWAIT7 | NRWAIT6
     X5T = NRWAIT7
     X3T = NRWAIT6
     UNSET = 0
@@ -322,71 +324,86 @@ class ZilogConfig(object):
     BA_ONLY = 0
     EEPROM_VALID = 0x1C
     TEMPLATE = (
-        ICR0.CLOCK_IN | ICR0.FORCE_PCMCIA | ICR0.EN_RDY_BSY,
+        # configured from FMC-98_C56M1_9509_IC3.BIN
+
+        ICR0.CLOCK_IN | ICR0.FORCE_PCMCIA | ICR0.EN_RDY_BSY | ICR0.EN_RDY_BSY | ICR0.EN_CTR_IRQ | ICR0.EN_ATA_BHE,
         IER.UNSET,
-        ICR1.UNSET,
-        ICR2.PCMCIA_IO8,
+        ICR1.EN_SPKR,  # ICT1.UNSET
+        ICR2.EN_INDP_MODE | ICR2.EN_ATT_MODE, # ICR2.PCMCIA_IO8,
+
         ICR3.UNSET,
         CCRBaseAddress.EN_CRR_A9,
         EEPROM,
         EEPROM,
+        
         EEPROM,
         EEPROM,
         CCR0.UNSET,  # Configuration Option
-        CCR1.PCMCIA_IO8,  # Card Configuration and Status
+        CCR1.UNSET,  # CCR1.PCMCIA_IO8,  # Card Configuration and Status
+        
         CCR2.UNSET,
         CCR3.UNSET,
         RESERVED,
         RESERVED,
-        W1CR.DISABLED,
-        W1SAL.UNSET,
-        W1SRAM.UNSET,
-        W1RAL.UNSET,
+        
+
+        W1CR.X7T | W1CR.EN_PAC1_ADDR_COMP,  # W1CR.DISABLED,
+        0x88,  # W1SAL.UNSET,
+        0x01,  # W1SRAM.UNSET,
+        0x08,  # W1RAL.UNSET,
+
         W2CR.DISABLED,
         W2SAL.UNSET,
         W2SRAM.UNSET,
         W2RAL.UNSET,
+        
         W3CR.DISABLED,
         W3SAL.UNSET,
         W3SRAM.UNSET,
         W3RAL.UNSET,
+        
         RESERVED,
         RESERVED,
         EEPROM_VALID,
         BA_ONLY,
+
+        
         EEPROM,
         EEPROM,
         EEPROM,
-        0,  # Revision Control
+        0x10,  # 0,  # Revision Control
+        
         0,  # Revision Number,
         RESERVED,
         Z16017_ONLY,
         Z16017_ONLY,
+
         DDCR.UNSET,
         RESERVED,
         PM_TIMER_VAL,
         PMCR.PCMCIA_IO8,
-        ICR4.UNSET,
+
+        0x02,  # ICR4.UNSET,
         CICR1.UNSET,
-        CICR2.PCMCIA_IO8,
-        BCR2.PCMCIA_IO8,
+        CICR2.EN_MEM_INDX | CICR2.IO_INDP_INDX4 | CICR2.EN_IO_INDP_INDX,  # CICR2.PCMCIA_IO8,
+        BCR2.EN_DIV_ADDR,  # BCR2.PCMCIA_IO8,
     )
 
     @classmethod
-    def from_bytes(cls, b):
+    def from_bytes(cls, b, diff=True):
         config = []
         for num, conf in enumerate(zip(cls.TEMPLATE, b)):
             tpl, val = conf
             if isinstance(tpl, Flag):
                 val = rbyte(val)
                 flag = tpl.__class__(val)
-                if tpl != flag:
+                if diff and tpl != flag:
                     print("%02Xh: %s (%s)" % (num, flag, tpl))
                 else:
                     print("%02Xh: %s" % (num, flag))
                 config.append(flag)
             else:
-                if tpl != val:
+                if diff and tpl != val:
                     print("%02Xh: %02Xh (%02Xh)" % (num, val, tpl))
                 else:
                     print("%02Xh: %02Xh" % (num, val))
@@ -409,6 +426,7 @@ class CISTuple:
             {"format": CISTuple.format, "__iter__": CISTuple.__iter__,}
         )
         newcls = type(cls.__name__, (NamedTuple, tuple,), newdict)
+        #newcls = new_class(cls.__name__, (NamedTuple,), newdict)
         return newcls.__new__(newcls, *args, **kwargs)
 
     def format(self):
@@ -654,13 +672,19 @@ def gen_cis():
 
 
 if __name__ == "__main__":
-    # with open("etherjet.bin", "rb+") as f:
-    #     b = f.read(len(ZilogConfig.TEMPLATE))
-    #     config = ZilogConfig.from_bytes(b).config
-    #     print(config)
+    argv = sys.argv[1:]
+    if argv:
+        for fname in argv:
+            print(fname)
+            with open(fname, "rb+") as f:
+                b = f.read(len(ZilogConfig.TEMPLATE))
+                config = ZilogConfig.from_bytes(b, diff=False).config
+                # print(config)
+        raise SystemExit()
 
     config = ZilogConfig().config
-    cis = gen_cis()
+    # cis = gen_cis()
+    cis = ()
     print(config)
     for tpl in cis:
         print(tpl)
