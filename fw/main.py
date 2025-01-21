@@ -11,12 +11,12 @@ if __name__ == "__main__":
     config = zc.config
     cis = gen_cis()
     for tpl in cis:
-        print(tpl, type(tpl))
+        print(tpl)
         nibbles = ["%02X" % i for i in tpl]
         print(" ".join(nibbles[:2]))
         print(" ".join(nibbles[2:]))
     cis = list(itertools.chain(*cis))
-    padding = [0] * (208 - len(cis))
+    padding = [0xff] * (208 - len(cis))
     with open("fw.bin", "wb+") as f:
         for val in config + cis + padding:
             if isinstance(val, Flag):

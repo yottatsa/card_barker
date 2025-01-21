@@ -32,13 +32,25 @@ class CISTPL_RAW(tuple):
 
 
 class CISTPL_DEVICE(metaclass=CISTuple, tpl=0x01):
-    EMPTY = b"\x00"  # based on CFVEW211
+    EMPTY = b"\x00"
     device_info: List[Any] = []
 
     def payload(self):
         return list(
             self.device_info
-            and itertools.chain(*self.device_info)
+            and itertools.chain(self.device_info)
+            or CISTPL_DEVICE.EMPTY
+        ) + [0xFF]
+
+
+class CISTPL_DEVICE_A(metaclass=CISTuple, tpl=0x17):
+    EMPTY = b"\x00"
+    device_info: List[Any] = []
+
+    def payload(self):
+        return list(
+            self.device_info
+            and itertools.chain(self.device_info)
             or CISTPL_DEVICE.EMPTY
         ) + [0xFF]
 
@@ -48,8 +60,8 @@ class CISTPL_VERS_1(metaclass=CISTuple, tpl=0x15):
     product_name: bytes
     lot_number: bytes = b""
     additional: bytes = b""
-    major: int = 0x04  # based on CFVEW211
-    minor: int = 0x01
+    major: int = 0x04
+    minor: int = 0x02
 
     def payload(self):
         return list(
@@ -60,9 +72,10 @@ class CISTPL_VERS_1(metaclass=CISTuple, tpl=0x15):
                 self.product_name,
                 (0,),
                 self.lot_number,
-                (0,),
+                self.lot_number and (0,) or (),
                 self.additional,
-                (0,),
+                self.additional and (0,),
+                (0xFF,)
             )
         )
 
@@ -70,7 +83,7 @@ class CISTPL_VERS_1(metaclass=CISTuple, tpl=0x15):
 class CISTPL_CONFIG(metaclass=CISTuple, tpl=0x1A):
     # TPCC_LAST Last Index
     # The Index Number of the final entry in the Card Configuration Table (the last entry encountered when scanning the CIS).
-    # TODO: unclear
+    # TODO: related to CISTPL_CFTABLE_ENTRY
     last_index: int
 
     # TPCC_RADR/TPCC_RMSK
@@ -79,45 +92,32 @@ class CISTPL_CONFIG(metaclass=CISTuple, tpl=0x1A):
     cr_base_address: int = 0
     presence_mask: int = 0
 
-    class TPCC_SZ(Flag):
-        TPCC_RASZ0 = auto()
-        TPCC_RASZ1 = auto()
-        TPCC_RMSZ0 = auto()
-        TPCC_RMSZ1 = auto()
-        TPCC_RMSZ2 = auto()
-        TPCC_RMSZ3 = auto()
-        TPCC_RFSZ6 = auto()
-        TPCC_RFSZ7 = auto()
-        UNSET = 0
-
-    class Presence(Flag):
-        R0 = auto()
-        R1 = auto()
-        R2 = auto()
-        R3 = auto()
-        R4 = auto()
-        R5 = auto()
-        R6 = auto()
-        R7 = auto()
-        UNSET = 0
-        ZILOG = 255
-
     def payload(self):
-        tpcc_sz = CISTPL_CONFIG.TPCC_SZ.UNSET
         assert 0 < self.last_index < 2 ** 6
         if self.cr_base_address > 65535:
-            tpcc_sz = tpcc_sz | CISTPL_CONFIG.TPCC_SZ.TPCC_RASZ1
-            sz = 3
+            rasz = 3
         elif self.cr_base_address > 255:
-            tpcc_sz = tpcc_sz | CISTPL_CONFIG.TPCC_SZ.TPCC_RASZ0
-            sz = 2
+            rasz = 2
         else:
-            sz = 1
+            rasz = 1
+        rmsz = 1
+        tpcc_sz = (rasz - 1) + ((rmsz - 1) << 2)
         return list(
             itertools.chain(
-                (tpcc_sz.value, self.last_index),
-                self.cr_base_address.to_bytes(sz, "little"),
-                self.presence_mask.value.to_bytes(1, "big"),
+                (tpcc_sz, self.last_index),
+                self.cr_base_address.to_bytes(rasz, "little"),
+                self.presence_mask.to_bytes(1, "big"),
+            )
+        )
+
+
+class CISTPL_CFTABLE_ENTRY(metaclass=CISTuple, tpl=0x1B):
+    cf: List[Any] = []
+
+    def payload(self):
+        return list(
+            itertools.chain(
+                self.cf,
             )
         )
 
@@ -201,55 +201,70 @@ def gen_cis():
     """
     return [
         CISTPL_DEVICE(),
-        #        CISTPL_DEVICE_A(),
+        CISTPL_DEVICE_A(device_info=[0x49, 0x00]),
         CISTPL_VERS_1(
-            manufacturer=b"Matsushita Electric Industrial Co., Ltd.",
-            product_name=b"Panasonic Sound Card",
-            lot_number=b"CF-VEW211",
-            additional=b"replica",
+            manufacturer=b"CTI",
+            product_name=b"FMC-98",
+            lot_number=b"",
+            additional=b"",
         ),
-        CISTPL_CONFIG(
-            last_index=4,
-            cr_base_address=ZilogConfig.IOSTART,
-            presence_mask=CISTPL_CONFIG.Presence.ZILOG,
+        CISTPL_MANFID(0xe201, 0x0001),
+        CISTPL_CONFIG(# 1A 05  01 01 00 02 07
+            last_index=0x1,
+            cr_base_address=0x200, #cr_base_address=ZilogConfig.IOSTART,
+            presence_mask=0x7
         ),
-        CISTPL_RAW(
-            """1B 14
-               E0 81 9D 11 55 1E FC 23 AC 61 30 05 09 88 03 03
-               30 80 0E 08
-               """
+        CISTPL_CFTABLE_ENTRY(# 1B 0E c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08
+            cf=list(int(nibble, 16) for nibble in "c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08".split())
         ),
-        CISTPL_RAW(
-            """1B 0A
-               21 08 AC 61 80 0E 09 88 03 03
-               """
-        ),
-        CISTPL_RAW(
-            """1B 0A
-               22 08 AC 61 40 0F 09 88 03 03
-               """
-        ),
-        CISTPL_RAW(
-            """1B 0A
-               23 08 AC 61 04 06 09 88 03 03
-               """
-        ),
+        #CISTPL_VERS_1(
+        #    manufacturer=b"Matsushita Electric Industrial Co., Ltd.",
+        #    product_name=b"Panasonic Sound Card",
+        #    lot_number=b"CF-VEW211",
+        #    additional=b"replica",
+        #),
+        #CISTPL_CONFIG(
+        #    last_index=4,
+        #    cr_base_address=ZilogConfig.IOSTART,
+        #    presence_mask=CISTPL_CONFIG.Presence.ZILOG,
+        #),
+        #CISTPL_RAW(
+        #    """1B 14
+        #       E0 81 9D 11 55 1E FC 23 AC 61 30 05 09 88 03 03
+        #       30 80 0E 08
+        #       """
+        #),
+        #CISTPL_RAW(
+        #    """1B 0A
+        #       21 08 AC 61 80 0E 09 88 03 03
+        #       """
+        #),
+        #CISTPL_RAW(
+        #    """1B 0A
+        #       22 08 AC 61 40 0F 09 88 03 03
+        #       """
+        #),
+        #CISTPL_RAW(
+        #    """1B 0A
+        #       23 08 AC 61 04 06 09 88 03 03
+        #       """
+        #),
         #        CISTPL_CFTABLE_ENTRY(),
         #        CISTPL_CFTABLE_ENTRY(),
         #        CISTPL_CFTABLE_ENTRY(),
         #        CISTPL_CFTABLE_ENTRY(),
-        CISTPL_MANFID(0x3200, 0x0100),
-        CISTPL_FUNCID(0),  # PANAKXL, as CFVEW211 uses invalid FF in the end
+        #CISTPL_MANFID(0x3200, 0x0100),
+        #CISTPL_FUNCID(0),  # PANAKXL, as CFVEW211 uses invalid FF in the end
         #        CISTPL_CHECKSUM(),
-        CISTPL_NO_LINK(),
-        CISTPL_END(b"yottatsa.name/cardbarker"),
+        #CISTPL_NO_LINK(),
+        #CISTPL_END(b"yottatsa.name/cardbarker"),
     ]
 
 
 if __name__ == "__main__":
     cis = gen_cis()
     for tpl in cis:
-        print(tpl, type(tpl))
+        print(tpl)
         nibbles = ["%02X" % i for i in tpl]
         print(" ".join(nibbles[:2]))
         print(" ".join(nibbles[2:]))
