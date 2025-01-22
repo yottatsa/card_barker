@@ -1,5 +1,5 @@
 import itertools
-from enum import Flag, auto
+from enum import Flag, Enum, auto
 from typing import Any, List, Optional, NamedTupleMeta, _NamedTuple
 from types import new_class
 
@@ -33,25 +33,39 @@ class CISTPL_RAW(tuple):
 
 class CISTPL_DEVICE(metaclass=CISTuple, tpl=0x01):
     EMPTY = b"\x00"
-    device_info: List[Any] = []
+    class DeviceType(Enum):
+        NULL = 0
+        EEPROM = 4
+        FUNCSPEC = 0xD
+
+    device_type: DeviceType = DeviceType.NULL
 
     def payload(self):
-        return list(
-            self.device_info
-            and itertools.chain(self.device_info)
-            or CISTPL_DEVICE.EMPTY
-        ) + [0xFF]
+        device_id = self.device_type.value << 4
+        if self.device_type == CISTPL_DEVICE.DeviceType.NULL:
+            return [device_id, 0xFF]
 
+
+class CISTPL_DEVICE(metaclass=CISTuple, tpl=0x01):
+    EMPTY = b"\x00"
+    class DeviceType(Enum):
+        NULL = 0
+        EEPROM = 4
+        FUNCSPEC = 0xD
+
+    device_type: DeviceType = DeviceType.NULL
+
+    def payload(self):
+        device_id = self.device_type.value << 4
+        if self.device_type == CISTPL_DEVICE.DeviceType.NULL:
+            return [device_id, 0xFF]
 
 class CISTPL_DEVICE_A(metaclass=CISTuple, tpl=0x17):
-    EMPTY = b"\x00"
     device_info: List[Any] = []
 
     def payload(self):
         return list(
-            self.device_info
-            and itertools.chain(self.device_info)
-            or CISTPL_DEVICE.EMPTY
+            itertools.chain(self.device_info)
         ) + [0xFF]
 
 
@@ -204,19 +218,6 @@ class CISTPL_MANFID(metaclass=CISTuple, tpl=0x20):
         )
 
 
-class CISTPL_FUNCID(metaclass=CISTuple, tpl=0x21):
-    function_code: int
-    sysinit: int = 0
-
-    def payload(self):
-        return [self.function_code, self.sysinit]
-
-
-class CISTPL_NO_LINK(metaclass=CISTuple, tpl=0x14):
-    def payload(self):
-        return []
-
-
 class CISTPL_END(metaclass=CISTuple, tpl=0xff):
     body: bytes
 
@@ -225,52 +226,11 @@ class CISTPL_END(metaclass=CISTuple, tpl=0xff):
 
 
 def gen_cis():
-    """
-    Table 2-2 Global CIS for Multiple Function PC Cards
-    CISTPL_DEVICE       01H
-    CISTPL_DEVICE_OC    1CH
-    CISTPL_LONGLINK_MFC 06H
-    CISTPL_VERS_1       15H
-    CISTPL_MANFID       20H
-    CISTPL_END          FFH
-
-    Table 2-3 Function-specific CIS for Multiple Function PC Cards
-    CISTPL_LINKTARGET       13H
-    CISTPL_CONFIG           1AH
-    CISTPL_CFTABLE_ENTRY    1BH
-    CISTPL_FUNCID           21H Recommended
-    CISTPL_FUNCE            22H Recommended
-    CISTPL_END          FFH
-    """
-
-    """
-    ; Tuple Data for: (CISTPL_DEVICE)
-    ; Tuple Data for: (CISTPL_DEVICE_A)
-      17 02 
-      D1 FF                                             ; ..
-
-    ; Tuple Data for: (CISTPL_VERS_1)
-    ; Tuple Data for: (CISTPL_CONFIG)
-      1A 05 
-      01 23 00 02 03                                    ; .#...
-
-    ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-    ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-    ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-    ; Tuple Data for: (CISTPL_CFTABLE_ENTRY)
-    ; Tuple Data for: (CISTPL_MANFID)
-    ; Tuple Data for: (CISTPL_FUNCID)
-    ; Tuple Data for: (CISTPL_CHECKSUM)
-      10 05 
-      47 FF B9 00 C9                                    ; G....
-
-    ; Tuple Data for: (CISTPL_NO_LINK)
-    ; Tuple Data for: (CISTPL_END)
-
-    """
     return [
-        CISTPL_DEVICE(),
-        CISTPL_DEVICE_A(device_info=[0x49, 0x00]),
+        CISTPL_DEVICE(), # no common memory device
+        CISTPL_DEVICE_A( # attribute memory device
+            device_info=[0x49, 0x00] # eeprom, device is writable, 250ns; 0 x 512B
+        ),
         CISTPL_VERS_1(
             manufacturer=b"CTI",
             product_name=b"FMC-98",
@@ -280,7 +240,7 @@ def gen_cis():
         CISTPL_MANFID(0xe201, 0x0001),
         CISTPL_CONFIG(# 1A 05  01 01 00 02 07
             last_index=1,  # last entry number
-            cr_base_address=0x200, #cr_base_address=ZilogConfig.IOSTART,
+            cr_base_address=0x200,
             presence_mask=0x7
         ),
         CISTPL_CFTABLE_ENTRY(# 1B 0E c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08
@@ -288,50 +248,10 @@ def gen_cis():
             default=True,
             interface=CISTPL_CFTABLE_ENTRY.IF.IO_MEM | CISTPL_CFTABLE_ENTRY.IF.READY | CISTPL_CFTABLE_ENTRY.IF.MWAIT,
             vcc=(0x01, 0x55), # nominal voltage; no ext, 0xA->5, 10mA/[1V]
-            iospace=(0xb0, 0x60, 0x88, 0x01, 0x07), # range; 1 range, 2 byte address, 1 byte length
+            iospace=(0xb0, 0x60, ZilogConfig.IOSTART & 0xFF, ZilogConfig.IOSTART >> 8, 0x07), # range; 1 range, 2 byte address, 1 byte length
             irq=(0x30, 0x00, 0x10), # mask, level, irqn0 ;;irq12
             misc=(0x08,) # audio
         ),
-        #CISTPL_VERS_1(
-        #    manufacturer=b"Matsushita Electric Industrial Co., Ltd.",
-        #    product_name=b"Panasonic Sound Card",
-        #    lot_number=b"CF-VEW211",
-        #    additional=b"replica",
-        #),
-        #CISTPL_CONFIG(
-        #    last_index=4,
-        #    cr_base_address=ZilogConfig.IOSTART,
-        #    presence_mask=CISTPL_CONFIG.Presence.ZILOG,
-        #),
-        #CISTPL_RAW(
-        #    """1B 14
-        #       E0 81 9D 11 55 1E FC 23 AC 61 30 05 09 88 03 03
-        #       30 80 0E 08
-        #       """
-        #),
-        #CISTPL_RAW(
-        #    """1B 0A
-        #       21 08 AC 61 80 0E 09 88 03 03
-        #       """
-        #),
-        #CISTPL_RAW(
-        #    """1B 0A
-        #       22 08 AC 61 40 0F 09 88 03 03
-        #       """
-        #),
-        #CISTPL_RAW(
-        #    """1B 0A
-        #       23 08 AC 61 04 06 09 88 03 03
-        #       """
-        #),
-        #        CISTPL_CFTABLE_ENTRY(),
-        #        CISTPL_CFTABLE_ENTRY(),
-        #        CISTPL_CFTABLE_ENTRY(),
-        #        CISTPL_CFTABLE_ENTRY(),
-        #CISTPL_MANFID(0x3200, 0x0100),
-        #CISTPL_FUNCID(0),  # PANAKXL, as CFVEW211 uses invalid FF in the end
-        #        CISTPL_CHECKSUM(),
-        #CISTPL_NO_LINK(),
         #CISTPL_END(b"yottatsa.name/cardbarker"),
     ]
 
