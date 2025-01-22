@@ -1,6 +1,6 @@
 import itertools
 from enum import Flag, auto
-from typing import Any, List, NamedTupleMeta, _NamedTuple
+from typing import Any, List, Optional, NamedTupleMeta, _NamedTuple
 from types import new_class
 
 from zconfig import ZilogConfig
@@ -112,11 +112,80 @@ class CISTPL_CONFIG(metaclass=CISTuple, tpl=0x1A):
 
 
 class CISTPL_CFTABLE_ENTRY(metaclass=CISTuple, tpl=0x1B):
+    class IF(Flag):
+        """
+        Interface Description Field
+        """
+        ITYPE_B0 = auto()
+        ITYPE_B1 = auto()
+        ITYPE_B2 = auto()
+        ITYPE_B3 = auto()
+        BVDS = auto()
+        WP = auto()
+        READY = auto()
+        MWAIT = auto()
+        IO_MEM = ITYPE_B0
+
+    class FS(Flag):
+        POWER_B0 = auto()
+        POWER_B1 = auto()
+        TIMING = auto()
+        IOSPACE = auto()
+        IRQ = auto()
+        MEMSPACE_B5 = auto()
+        MEMSPACE_B6 = auto()
+        MISC = auto()
+        VCC = POWER_B0
+        VPP1 = POWER_B1
+        VPP2 = POWER_B0 | POWER_B1
+        MEMBASE = MEMSPACE_B5
+        MEMBASLEN = MEMSPACE_B6
+        MEMWINDOW = MEMSPACE_B5 | MEMSPACE_B6
+        UNSET = 0
+
+
+    vcc: Optional[Any] = ()
+    vpp1: Optional[Any] = ()
+    vpp2: Optional[Any] = ()
+    iospace: Optional[Any] = ()
+    irq: Optional[Any] = ()
+    membase: Optional[Any] = ()
+    misc: Optional[Any] = ()
     cf: List[Any] = []
+    entry_number: int = 1
+    default: bool = True
+    interface: Optional[IF] = None
+
 
     def payload(self):
+        index = self.entry_number
+        if self.default:
+            index |= 1 << 6
+        if self.interface:
+            index |= 1 << 7
+        fs = self.FS.UNSET
+        if self.vcc:
+            fs |= self.FS.VCC
+        if self.iospace:
+            fs |= self.FS.IOSPACE
+        if self.irq:
+            fs |= self.FS.IRQ
+        if self.membase:
+            fs |= self.FS.MEMBASE
+        if self.misc:
+            fs |= self.FS.MISC
+
+        print(fs, bin(fs.value))
         return list(
             itertools.chain(
+                (index,),
+                (self.interface and (self.interface.value,) or ()),
+                (fs.value,),
+                self.vcc,
+                self.iospace,
+                self.irq,
+                self.membase,
+                self.misc,
                 self.cf,
             )
         )
@@ -210,12 +279,18 @@ def gen_cis():
         ),
         CISTPL_MANFID(0xe201, 0x0001),
         CISTPL_CONFIG(# 1A 05  01 01 00 02 07
-            last_index=0x1,
+            last_index=1,  # last entry number
             cr_base_address=0x200, #cr_base_address=ZilogConfig.IOSTART,
             presence_mask=0x7
         ),
         CISTPL_CFTABLE_ENTRY(# 1B 0E c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08
-            cf=list(int(nibble, 16) for nibble in "c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08".split())
+            entry_number=1,
+            default=True,
+            interface=CISTPL_CFTABLE_ENTRY.IF.IO_MEM | CISTPL_CFTABLE_ENTRY.IF.READY | CISTPL_CFTABLE_ENTRY.IF.MWAIT,
+            vcc=(0x01, 0x55), # nominal voltage; no ext, 0xA->5, 10mA/[1V]
+            iospace=(0xb0, 0x60, 0x88, 0x01, 0x07), # range; 1 range, 2 byte address, 1 byte length
+            irq=(0x30, 0x00, 0x10), # mask, level, irqn0 ;;irq12
+            misc=(0x08,) # audio
         ),
         #CISTPL_VERS_1(
         #    manufacturer=b"Matsushita Electric Industrial Co., Ltd.",
