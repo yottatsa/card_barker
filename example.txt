@@ -1,0 +1,8 @@
+Memory dump
+
+.......C..\x7f...>.!.......3Com.Megahertz\x7f589E.TP/BNC\x7fLAN\x7fPC\x7fCard.
+005.........\x7f..A.>qU5UT`r]d0\x7f\x7f....\x7f....qU&&..............s
+
+Python structure
+
+>>> ['<STX>', '<SOH>', '<STX>', '<NUL>', '<ETX>', '<ETB>', '<ETX>', 'C', '<STX>', '<EOT>', '\x7f', '<EOT>', '<SOH>', '<SOH>', '>', '<STX>', '!', '<STX>', '<ACK>', '.', '<NAK>', '.', '<EOT>', '<SOH>', '3', 'C', 'o', 'm', '<NUL>', 'M', 'e', 'g', 'a', 'h', 'e', 'r', 't', 'z', '\x7f', '5', '8', '9', 'E', '<NUL>', 'T', 'P', '/', 'B', 'N', 'C', '\x7f', 'L', 'A', 'N', '\x7f', 'P', 'C', '\x7f', 'C', 'a', 'r', 'd', '<NUL>', '0', '0', '5', '<NUL>', '<ACK>', '<SUB>', '<ACK>', '<STX>', '<ETX>', '<NUL>', '<NUL>', '<SOH>', '\x7f', '<ESC>', '<DC4>', 'A', '<SOH>', '>', 'q', 'U', '5', 'U', 'T', '`', 'r', ']', 'd', '0', '\x7f', '\x7f', '<NUL>', '<NUL>', '<NUL>', '<NUL>', '\x7f', '<ESC>', '<BEL>', '<ETX>', '<SOH>', 'q', 'U', '&', '&', '<ETX>', '<EOM>', '<ETX>', '<NUL>', '<NUL>', '<NUL>', '<DC4>', '<ENQ>', '<DLE>', '<NUL>', '<NUL>', '<NUL>', '<NUL>', '<NUL>', 's']

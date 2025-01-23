@@ -189,7 +189,6 @@ class CISTPL_CFTABLE_ENTRY(metaclass=CISTuple, tpl=0x1B):
         if self.misc:
             fs |= self.FS.MISC
 
-        print(fs, bin(fs.value))
         return list(
             itertools.chain(
                 (index,),
