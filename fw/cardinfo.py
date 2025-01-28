@@ -1,9 +1,9 @@
 import itertools
 from enum import Flag, Enum, auto
-from typing import Any, List, Optional, NamedTupleMeta, _NamedTuple
+from typing import Any, List, Optional, NamedTupleMeta, _NamedTuple, NamedTuple
 from types import new_class
 
-from zconfig import ZilogConfig
+from zconfig import ZilogConfig, CCRBaseAddress
 
 
 class CISTuple(NamedTupleMeta):
@@ -101,10 +101,10 @@ class CISTPL_CONFIG(metaclass=CISTuple, tpl=0x1A):
     last_index: int
 
     # TPCC_RADR/TPCC_RMSK
-    # is equal to CCRBaseAddress value on ZILOG
-    # TODO: not automated yet
-    cr_base_address: int = 0
-    presence_mask: int = 0
+    # is equal to CCRBaseAddress.to_address value on ZILOG
+    cr_base_address: int = CCRBaseAddress.to_address(ZilogConfig.CCR_BASE)
+    # Zilog has 4 or 5 (Rev. BA) registers
+    presence_mask: int = ZilogConfig.REVISION.value and 0b11111 or 0b1111
 
     def payload(self):
         assert 0 < self.last_index < 2 ** 6
@@ -217,8 +217,15 @@ class CISTPL_MANFID(metaclass=CISTuple, tpl=0x20):
         )
 
 
-class CISTPL_END(metaclass=CISTuple, tpl=0xff):
-    body: bytes
+class CISTPL_END(NamedTuple):
+    body: bytes = b""
+
+    def format(self):
+        payload = self.payload()
+        return [0xff, 0x00] + payload
+
+    def __iter__(self):
+        return self.format().__iter__()
 
     def payload(self):
         return list(self.body)
@@ -239,8 +246,7 @@ def gen_cis():
         CISTPL_MANFID(0xe201, 0x0001),
         CISTPL_CONFIG(# 1A 05  01 01 00 02 07
             last_index=1,  # last entry number
-            cr_base_address=0x200,
-            presence_mask=0x7
+            presence_mask=0b111, 
         ),
         CISTPL_CFTABLE_ENTRY(# 1B 0E c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08
             entry_number=1,
@@ -251,7 +257,7 @@ def gen_cis():
             irq=(0x30, 0x00, 0x10), # mask, level, irqn0 ;;irq12
             misc=(0x08,) # audio
         ),
-        #CISTPL_END(b"yottatsa.name/cardbarker"),
+        CISTPL_END(),#b"yottatsa.name/cardbarker"),
     ]
 
 

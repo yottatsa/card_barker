@@ -1,5 +1,5 @@
 import sys
-from enum import Flag, auto
+from enum import Enum, Flag, auto
 
 
 
@@ -111,11 +111,15 @@ class CCRBaseAddress(Flag):
     EN_CRR_A6 = auto()
     EN_CRR_A7 = auto()
     EN_CRR_A8 = auto()
-    EN_CRR_A9 = auto()
+    EN_CRR_A9 = auto() 
     EN_CRR_A10 = auto()
     DIS_CRR_MODE = auto()
     NONE = DIS_CRR_MODE
-    CCR_BASE_0000 = 0
+
+    @classmethod
+    def to_address(cls, flag):
+        base = (flag.value & 0x7F) << 4
+        return base
 
 
 class CCR0(Flag):
@@ -257,9 +261,9 @@ class CCR4(Flag):
     UNSET = 0
 
 
-class EEPROMValidFlag(Flag):
+class RevisionControl(Enum):
     UNSET = 0
-    VALID = 0x1c
+    BA = 0x10
 
 
 class DDCR(Flag):
@@ -317,11 +321,20 @@ class BCR2(Flag):
     PCMCIA_IO8 = 0  # fixme
 
 
-class ZilogConfig(object):
-    EEPROM = 0
+class EEPROM(Flag):
+    RO = 0
+    VALID = 0x1c
+
+class Special(Flag):
     RESERVED = 0
+
+
+class ZilogConfig(object):
+    EEPROM = EEPROM.RO
+    RESERVED = Special.RESERVED
+    REVISION = RevisionControl.BA
     Z16017_ONLY = 0
-    BA_ONLY = 0
+    CCR_BASE = CCRBaseAddress.EN_CRR_A9
     IOSTART = 0x188
     IORANGE = 0x8
     PM_TIMER_VAL = 0
@@ -336,7 +349,7 @@ class ZilogConfig(object):
 
         # 04
         ICR3.UNSET,
-        CCRBaseAddress.EN_CRR_A9,
+        CCR_BASE,
         EEPROM,
         EEPROM,
         
@@ -373,14 +386,14 @@ class ZilogConfig(object):
         # 1C
         RESERVED,
         RESERVED,
-        EEPROMValidFlag.VALID,
+        EEPROM.VALID,
         CCR4.UNSET,
 
         # 20
         EEPROM,
         EEPROM,
         EEPROM,
-        0x10,  # 0,  # Revision Control
+        REVISION,
         
         # 24
         0,  # Revision Number,
@@ -408,7 +421,7 @@ class ZilogConfig(object):
         config = []
         for num, conf in enumerate(zip(cls.TEMPLATE, b)):
             tpl, val = conf
-            if isinstance(tpl, Flag):
+            if isinstance(tpl, Flag) or isinstance(tpl, Enum):
                 val = rbyte(val)
                 flag = tpl.__class__(val)
                 config.append(flag)
@@ -453,11 +466,11 @@ if __name__ == "__main__":
     argv = sys.argv[1:]
     if argv:
         for fname in argv:
-            print(fname.__repr__())
+            print(fname)
             with open(fname, "rb+") as f:
                 b = f.read(len(ZilogConfig.TEMPLATE))
-                zc = ZilogConfig.from_bytes(b, debug=False)
-                zc.pprint()
+                zc = ZilogConfig.from_bytes(b)
+                #zc.pprint()
 
     else:
         zc = ZilogConfig()

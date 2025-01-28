@@ -1,5 +1,5 @@
 import itertools
-from enum import Flag
+from enum import Flag, Enum
 
 from zconfig import ZilogConfig
 from cardinfo import gen_cis
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     padding = [0xff] * (208 - len(cis))
     with open("fw.bin", "wb+") as f:
         for val in config + cis + padding:
-            if isinstance(val, Flag):
+            if isinstance(val, Flag) or isinstance(val, Enum):
                 b = val.value
             else:
                 b = val

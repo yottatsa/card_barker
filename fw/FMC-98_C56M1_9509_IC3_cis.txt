@@ -1,0 +1,49 @@
+offset 0x02, tuple 0x01, link 0x02
+  00 ff 
+dev_info
+  no_info
+
+offset 0x06, tuple 0x17, link 0x03
+  49 00 ff 
+attr_dev_info
+  EEPROM 250ns, 512b
+
+offset 0x0b, tuple 0x15, link 0x0e
+  04 02 43 54 49 00 46 4d 43 2d 39 38 00 ff 
+vers_1 4.2, "CTI", "FMC-98"
+
+offset 0x1b, tuple 0x20, link 0x04
+  e2 01 00 01 
+manfid 0x01e2, 0x0100
+
+offset 0x21, tuple 0x1a, link 0x05
+  01 01 00 02 07 
+config base 0x0200 mask 0x0007 last_index 0x01
+
+offset 0x28, tuple 0x1b, link 0x0e
+  c1 c1 99 01 55 b0 60 88 01 07 30 00 10 08 
+cftable_entry 0x01 [default]
+  [rdybsy] [mwait] [audio]
+  Vcc Vnom 5V
+  io 0x0188-0x018f [lines=16] [8bit] [range]
+  irq mask 0x1000 [level]
+
+offset 0x38, tuple 0xff, link 0xff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+parse error: Success
+
