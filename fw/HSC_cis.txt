@@ -1,0 +1,48 @@
+HSC_cis.txtoffset 0x02, tuple 0x01, link 0x03
+  d1 01 ff
+dev_info
+  fn_specific 250ns, 2kb
+
+offset 0x07, tuple 0x15, link 0x3d
+  04 01 41 63 63 75 72 69 74 65 20 54 65 63 68 6e
+  6f 6c 6f 67 69 65 73 20 49 6e 63 2e 00 48 65 61
+  64 73 74 61 72 74 43 61 72 64 00 56 65 72 73 69
+  6f 6e 20 31 2e 30 00 31 39 39 35 00 ff
+vers_1 4.1, "Accurite Technologies Inc.", "HeadstartCard", "Version 1.0",
+  "1995"
+
+offset 0x46, tuple 0x20, link 0x04
+  4a 01 00 01
+manfid 0x014a, 0x0100
+
+offset 0x4c, tuple 0x1a, link 0x05
+  00 00 00 00 00
+config base 0x0000 mask 0x0000 last_index 0x00
+  1 bytes in subtuples
+
+offset 0x53, tuple 0x1b, link 0x09
+  c0 00 01 00 0f 55 4d 5d 1e
+cftable_entry 0x00 [default]
+  5 bytes in subtuples
+
+offset 0x5e, tuple 0x14, link 0x00
+no_long_link
+
+offset 0x60, tuple 0xff, link 0xff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+parse error: Success
