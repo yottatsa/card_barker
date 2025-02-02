@@ -2,15 +2,14 @@ GAL16V8    ;
 devboard   ;
 
 Clock	REG	RESET	IREQ	IOWR	IORD	OE	CE1	CE2	GND
-NC	L	K	T	CD1	CD2	TA	M	J	VCC
+NC	L	K	NC	WE	NC	NC	M	J	VCC
+;				CD1 	CD2
 
 
-T = IOWR * IORD * OE * /CE1 * /CE2 * /RESET
-TA = IOWR * IORD * OE * /CE1 * /CE2 * RESET
-J = IOWR * IORD * OE * /CE1 * /CE2
-K = IOWR * IORD * OE
-L = T
-M = TA
+J = IOWR * IORD * OE * CE1 * CE2 + /REG 
+K = IOWR * IORD * OE * CE1 * CE2 + REG
+L = IOWR * IORD * OE * CE1 * CE2 + /REG  + RESET
+M = IOWR * IORD * OE * CE1 * CE2 + REG  + RESET
 
 
 DESCRIPTION
