@@ -1,0 +1,81 @@
+offset 0x02, tuple 0x01, link 0x02
+  00 ff 
+dev_info
+  no_info
+
+offset 0x06, tuple 0x17, link 0x02
+  d1 ff 
+attr_dev_info
+  no_info
+
+offset 0x0a, tuple 0x15, link 0x64
+  04 01 4d 61 74 73 75 73 68 69 74 61 20 45 6c 65 
+  63 74 72 69 63 20 49 6e 64 75 73 74 72 69 61 6c 
+  20 43 6f 2e 2c 20 4c 74 64 2e 00 50 61 6e 61 73 
+  6f 6e 69 63 20 53 6f 75 6e 64 20 43 61 72 64 00 
+  43 46 2d 56 45 57 32 31 31 00 56 65 72 73 69 6f 
+  6e 20 31 2e 31 20 41 70 6c 2e 20 32 35 2c 31 39 
+  39 34 00 ff 
+vers_1 4.1, "Matsushita Electric Industrial Co., Ltd.",
+  "Panasonic Sound Card", "CF-VEW211", "Version 1.1 Apl. 25,1994"
+
+offset 0x70, tuple 0x1a, link 0x05
+  01 23 00 02 03 
+config base 0x0200 mask 0x0003 last_index 0x23
+
+offset 0x77, tuple 0x1b, link 0x14
+  e0 81 9d 11 55 1e fc 23 ac 61 30 05 09 88 03 03 
+  30 80 0e 08 
+cftable_entry 0x20 [default]
+  [mwait] [audio]
+  Vcc Vnom 5V Iavg 150mA
+  timing wait 1500ns
+  io 0x0530-0x0539, 0x0388-0x038b [lines=12] [8bit] [range]
+  irq mask 0x0e80 [level]
+
+offset 0x8d, tuple 0x1b, link 0x0a
+  21 08 ac 61 80 0e 09 88 03 03 
+cftable_entry 0x21
+  io 0x0e80-0x0e89, 0x0388-0x038b [lines=12] [8bit] [range]
+
+offset 0x99, tuple 0x1b, link 0x0a
+  22 08 ac 61 40 0f 09 88 03 03 
+cftable_entry 0x22
+  io 0x0f40-0x0f49, 0x0388-0x038b [lines=12] [8bit] [range]
+
+offset 0xa5, tuple 0x1b, link 0x0a
+  23 08 ac 61 04 06 09 88 03 03 
+cftable_entry 0x23
+  io 0x0604-0x060d, 0x0388-0x038b [lines=12] [8bit] [range]
+
+offset 0xb1, tuple 0x20, link 0x04
+  32 00 01 00 
+manfid 0x0032, 0x0001
+
+offset 0xb7, tuple 0x21, link 0x02
+  ff 00 
+funcid unknown
+
+offset 0xbb, tuple 0x10, link 0x05
+  47 ff b9 00 c9 
+checksum 0x0000-0x00b8 = 0xc9
+
+offset 0xc2, tuple 0x14, link 0x00
+no_long_link
+
+offset 0xc4, tuple 0xff, link 0xc3
+  50 72 6f 64 75 63 74 69 6f 6e 20 44 61 74 65 3a 
+  cb 07 02 0d 01 54 69 6d 65 3a 14 20 30 2b 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 c0 00 00 00 
+  00 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  00 00 00 
+parse error: Success
+
