@@ -335,7 +335,7 @@ class ZilogConfig(object):
     REVISION = RevisionControl.BA
     Z16017_ONLY = 0
     CCR_BASE = CCRBaseAddress.EN_CRR_A9
-    IOSTART = 0x188
+    IOSTART = 0x388
     IORANGE = 0x8
     PM_TIMER_VAL = 0
     TEMPLATE = (
