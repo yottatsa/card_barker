@@ -336,13 +336,13 @@ class ZilogConfig(object):
     Z16017_ONLY = 0
     CCR_BASE = CCRBaseAddress.EN_CRR_A9
     IOSTART = 0x388
-    IORANGE = 0x8
+    IORANGE = 0x4
     PM_TIMER_VAL = 0
     TEMPLATE = (
         # configured from FMC-98_C56M1_9509_IC3.BIN
 
         # 00
-        ICR0.CLOCK_IN | ICR0.FORCE_PCMCIA | ICR0.EN_RDY_BSY | ICR0.EN_CTR_IRQ | ICR0.EN_ATA_BHE,
+        ICR0.CLOCK_IN | ICR0.FORCE_PCMCIA | ICR0.EN_RDY_BSY | ICR0.EN_CTR_IRQ,
         IER.UNSET,
         ICR1.EN_SPKR,  # ICT1.UNSET
         ICR2.PCMCIA_IO8,
@@ -411,7 +411,7 @@ class ZilogConfig(object):
         ICR4.DISABLE_PM_COUNTER,  # ICR4.UNSET,
         CICR1.UNSET,
         CICR2.EN_MEM_INDX | CICR2.IO_INDP_INDX4 | CICR2.EN_IO_INDP_INDX,  # CICR2.PCMCIA_IO8,
-        BCR2.EN_DIV_ADDR,  # BCR2.PCMCIA_IO8,
+        BCR2.PCMCIA_IO8,
         
         #2F
     )
