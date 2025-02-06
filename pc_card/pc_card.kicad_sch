@@ -5,9 +5,9 @@
 	(uuid "792da158-0192-445f-a668-7902349a051c")
 	(paper "A4")
 	(title_block
-		(title "Card Barker OPL3 Sound Card")
-		(date "2024-08-07")
-		(rev "HW2")
+		(title "PCMCIA OPL3 Sound Card")
+		(date "2025-02-06")
+		(rev "HW3")
 	)
 	(lib_symbols
 		(symbol "Connector:TestPoint"
