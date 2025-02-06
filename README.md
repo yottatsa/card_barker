@@ -6,11 +6,13 @@
 * OPL3: Yamaha YMF289B-S and YAC516-E
 * Amp: [Texas Instruments TPA152DR](http://www.ti.com/lit/gpn/tpa152)
 
-Project status: devboard is working, card hw rev 2 is debug
+Project status: devboard is working, card hw rev 2 is working, card hw rev 3 goes thru small reDfM. 
 
 ## How to run
 
-After assembly, upload `fw/zv.bpd` using `fw/hsc.zip/burner.exe`, and enable using `fw/panas13.lzh/panasnd.exe`. It should start responding on `0x0388-0x038b`.
+1. After assembly, upload `fw/zv.bpd` using `fw/hsc.zip/burner.exe`;
+2. Enable using `fw/panas13.lzh/panasnd.exe`, it should start responding on `0x0388-0x038b`;
+2. Run `fw/oplclone.zip/oplclone.exe`, it should produce ~460Hz sine.
 
 ## PCBs
 ![Card](https://raw.githubusercontent.com/yottatsa/card_barker/main/pc_card/pc_card-render.png)

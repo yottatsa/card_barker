@@ -10,378 +10,6 @@
 		(rev "HW2")
 	)
 	(lib_symbols
-		(symbol "Connector:Conn_01x07_Socket"
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x07_Socket"
-				(at 0 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x07, script generated"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x07_Socket_1_1"
-				(arc
-					(start 0 -7.112)
-					(mid -0.5058 -7.62)
-					(end 0 -8.128)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 -4.572)
-					(mid -0.5058 -5.08)
-					(end 0 -5.588)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 -2.032)
-					(mid -0.5058 -2.54)
-					(end 0 -3.048)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -7.62) (xy -0.508 -7.62)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -5.08) (xy -0.508 -5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -0.508 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy -0.508 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 2.54) (xy -0.508 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 5.08) (xy -0.508 5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 7.62) (xy -0.508 7.62)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 0.508)
-					(mid -0.5058 0)
-					(end 0 -0.508)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 3.048)
-					(mid -0.5058 2.54)
-					(end 0 2.032)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 5.588)
-					(mid -0.5058 5.08)
-					(end 0 4.572)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 8.128)
-					(mid -0.5058 7.62)
-					(end 0 7.112)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 7.62 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 5.08 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -7.62 0)
-					(length 3.81)
-					(name "Pin_7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Connector:TestPoint"
 			(pin_numbers hide)
 			(pin_names
@@ -7934,7 +7562,7 @@
 	)
 	(polyline
 		(pts
-			(xy 173.99 162.56) (xy 173.99 193.04)
+			(xy 162.56 162.56) (xy 162.56 193.04)
 		)
 		(stroke
 			(width 0)
@@ -7964,7 +7592,7 @@
 	)
 	(polyline
 		(pts
-			(xy 173.99 193.04) (xy 118.11 193.04)
+			(xy 162.56 193.04) (xy 118.11 193.04)
 		)
 		(stroke
 			(width 0)
@@ -7974,7 +7602,7 @@
 	)
 	(polyline
 		(pts
-			(xy 118.11 162.56) (xy 173.99 162.56)
+			(xy 118.11 162.56) (xy 162.56 162.56)
 		)
 		(stroke
 			(width 0)
@@ -10269,26 +9897,6 @@
 			)
 		)
 	)
-	(global_label "VPP"
-		(shape passive)
-		(at 167.64 168.91 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5c5a8075-83cd-4918-bfdc-fbe10f33d431")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "IORD#"
 		(shape output)
 		(at 154.94 46.99 0)
@@ -10801,26 +10409,6 @@
 		(uuid "7ac6da12-7894-4160-905f-e51d53c5a0f9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 27.94 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "POR#"
-		(shape bidirectional)
-		(at 167.64 184.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7ae726ad-a9ea-435f-8db1-09525a75d3f9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11429,26 +11017,6 @@
 			)
 		)
 	)
-	(global_label "EE_SK"
-		(shape bidirectional)
-		(at 167.64 179.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9f8478ab-79c1-46aa-ac41-c2fd3d10e150")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "IOWR#"
 		(shape output)
 		(at 154.94 49.53 0)
@@ -11621,26 +11189,6 @@
 		(uuid "ac2200b2-d803-4585-bda4-ce992524964a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 242.57 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "EE_CS"
-		(shape bidirectional)
-		(at 167.64 181.61 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ae714f4c-b07d-4542-9a39-d5103a415ffa")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12149,26 +11697,6 @@
 			)
 		)
 	)
-	(global_label "GNDD"
-		(shape passive)
-		(at 167.64 171.45 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c6129c5d-ccb3-4dd6-8b81-486c51554203")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "VCC"
 		(shape passive)
 		(at 74.93 168.91 180)
@@ -12551,7 +12079,7 @@
 	)
 	(global_label "GNDD"
 		(shape passive)
-		(at 124.46 175.26 180)
+		(at 129.54 175.26 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12560,7 +12088,7 @@
 		)
 		(uuid "d6b787d0-fc92-4ef3-ab6c-2387693cecee")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 124.46 175.26 0)
+			(at 129.54 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13109,26 +12637,6 @@
 			)
 		)
 	)
-	(global_label "EE_DI"
-		(shape bidirectional)
-		(at 167.64 173.99 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f7fd91a1-3c34-4fc8-941a-ae76b4d41c1e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "AVDD"
 		(shape passive)
 		(at 265.43 140.97 0)
@@ -13141,26 +12649,6 @@
 		(uuid "f969166c-92bd-4f99-8404-a9f57492ae08")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 265.43 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "EE_DO"
-		(shape bidirectional)
-		(at 167.64 176.53 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "fa628240-581b-45c2-a51c-75b3399bfac6")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 167.64 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14960,7 +14448,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 236.601 65.913 0)
 			(effects
 				(font
@@ -15065,7 +14553,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 264.541 65.913 0)
 			(effects
 				(font
@@ -15380,7 +14868,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 237.871 83.693 0)
 			(effects
 				(font
@@ -15590,7 +15078,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 269.621 82.423 0)
 			(effects
 				(font
@@ -16421,7 +15909,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv809e.pdf"
+		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001906D.pdf"
 			(at 186.69 93.98 0)
 			(effects
 				(font
@@ -16439,7 +15927,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Texas Instruments"
+		(property "Manufacturer_Name" "Microchip Technology"
 			(at 194.31 100.33 0)
 			(effects
 				(font
@@ -16448,7 +15936,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "TLV809EA45DBZR"
+		(property "Manufacturer_Part_Number" "MCP102T-450E/TT"
 			(at 194.31 100.33 0)
 			(effects
 				(font
@@ -16457,7 +15945,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser Part Number" "595-TLV809EA45DBZR"
+		(property "Mouser Part Number" ""
 			(at 194.31 100.33 0)
 			(effects
 				(font
@@ -16466,7 +15954,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/595-TLV809EA45DBZR"
+		(property "Mouser Price/Stock" ""
 			(at 194.31 100.33 0)
 			(effects
 				(font
@@ -17154,7 +16642,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 254.381 65.913 0)
 			(effects
 				(font
@@ -17259,7 +16747,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 245.491 65.913 0)
 			(effects
 				(font
@@ -17392,7 +16880,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Open-drain, active-low, as ~{POR} is Schmitt-Triggered, 100K Pull-Up"
 			(at 82.55 179.07 0)
 			(effects
 				(font
@@ -17891,7 +17379,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "1u"
 			(at 57.15 176.8094 90)
 			(effects
 				(font
@@ -18478,7 +17966,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "93CxxC"
+		(property "Value" "93C56"
 			(at 141.8941 167.64 0)
 			(effects
 				(font
@@ -18752,76 +18240,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 127 175.26 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "80f24473-8850-4ece-ae3d-f991830cbd4c")
-		(property "Reference" "R13"
-			(at 127 169.545 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "ORG"
-			(at 127 172.085 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 127 175.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 127 175.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 127 175.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "887ac0f1-b306-489b-8d0c-88b0012bf32e")
-		)
-		(pin "2"
-			(uuid "468f59a7-7fa1-4053-b87d-dde037b35490")
-		)
-		(instances
-			(project "pc_card"
-				(path "/792da158-0192-445f-a668-7902349a051c"
-					(reference "R13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint_Probe")
 		(at 180.34 52.07 0)
 		(unit 1)
@@ -19054,7 +18472,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5015_Micro-Minature"
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
 			(at 104.14 128.27 0)
 			(effects
 				(font
@@ -19088,6 +18506,74 @@
 			(project "pc_card"
 				(path "/792da158-0192-445f-a668-7902349a051c"
 					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Probe")
+		(at 207.01 24.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ade25a2b-ea41-4a72-9eee-362687386bf3")
+		(property "Reference" "TP14"
+			(at 210.82 21.2724 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "~{RESET}"
+			(at 215.9 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 212.09 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 212.09 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point (alternative probe-style design)"
+			(at 207.01 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "41d417cc-aebd-4d72-bac2-9827e600572e")
+		)
+		(instances
+			(project "pc_card"
+				(path "/792da158-0192-445f-a668-7902349a051c"
+					(reference "TP14")
 					(unit 1)
 				)
 			)
@@ -19156,90 +18642,6 @@
 			(project "pc_card"
 				(path "/792da158-0192-445f-a668-7902349a051c"
 					(reference "TP10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x07_Socket")
-		(at 172.72 176.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c856ed5a-34dd-4458-bd80-cbcdd5c2f70c")
-		(property "Reference" "J3"
-			(at 167.64 164.592 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SPI"
-			(at 166.878 167.132 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_1x07_P1.27mm_Vertical"
-			(at 172.72 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 172.72 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x07, script generated"
-			(at 172.72 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "a85e9885-c449-45ce-b9d5-ea2e1f7c1786")
-		)
-		(pin "1"
-			(uuid "0334445b-0b17-4cda-a89f-d8e98e17d6bc")
-		)
-		(pin "3"
-			(uuid "1e4a3584-a065-4b3b-9fef-892ad97d338a")
-		)
-		(pin "4"
-			(uuid "89123a79-4705-465b-961d-c2641eff3c42")
-		)
-		(pin "5"
-			(uuid "383fc6ef-f22a-4647-8220-f3ce48a6c857")
-		)
-		(pin "6"
-			(uuid "7ea44c12-ddda-44a0-9a29-f983933d00ef")
-		)
-		(pin "7"
-			(uuid "9de1b05e-9ddd-4eeb-a73e-954ba421a220")
-		)
-		(instances
-			(project ""
-				(path "/792da158-0192-445f-a668-7902349a051c"
-					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -19376,6 +18778,74 @@
 			(project "pc_card"
 				(path "/792da158-0192-445f-a668-7902349a051c"
 					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Probe")
+		(at 207.01 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fcc3ac1b-6e8f-442e-a16d-57d7ec7a52f6")
+		(property "Reference" "TP13"
+			(at 210.82 23.8124 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "A0"
+			(at 215.9 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 212.09 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 212.09 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point (alternative probe-style design)"
+			(at 207.01 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c14212a7-6580-440a-96d9-379a9db742fc")
+		)
+		(instances
+			(project "pc_card"
+				(path "/792da158-0192-445f-a668-7902349a051c"
+					(reference "TP13")
 					(unit 1)
 				)
 			)
