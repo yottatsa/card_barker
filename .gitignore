@@ -9,5 +9,6 @@ __pycache__
 
 *.stp
 *.step
+*.CIS
 
 gal/GALasm

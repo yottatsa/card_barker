@@ -7069,12 +7069,6 @@
 		(uuid "ae75720e-c5bb-44c5-bf7d-fd557c4d9f36")
 	)
 	(junction
-		(at 173.99 130.81)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b0c1bd51-91ca-4ade-a6fd-baeb60716c91")
-	)
-	(junction
 		(at 267.97 154.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12880,7 +12874,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "~"
+		(property "Manufacturer_Part_Number" "Z8601720ASG"
 			(at 63.5 90.17 0)
 			(effects
 				(font
@@ -13582,7 +13576,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-000061998785")
 		(property "Reference" "JP1"
 			(at 163.83 39.751 0)
@@ -13649,7 +13643,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-000061999057")
 		(property "Reference" "JP2"
 			(at 161.29 75.311 0)
@@ -13835,7 +13829,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "~"
+		(property "Manufacturer_Part_Number" "YMF289B-S"
 			(at 194.31 21.59 0)
 			(effects
 				(font
@@ -14016,7 +14010,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "~"
+		(property "Manufacturer_Part_Number" "YAC516-E"
 			(at 252.73 20.32 0)
 			(effects
 				(font
@@ -14104,7 +14098,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-0000619dd9b1")
 		(property "Reference" "TP1"
 			(at 207.01 150.1648 90)
@@ -14173,7 +14167,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-0000619deb35")
 		(property "Reference" "TP2"
 			(at 265.3538 126.2888 90)
@@ -15237,9 +15231,9 @@
 		(at 252.73 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-000061a43cf3")
 		(property "Reference" "J2"
 			(at 252.2728 97.155 0)
@@ -15467,7 +15461,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.19MHz"
+		(property "Value" "8MHZ"
 			(at 38.6334 181.483 0)
 			(effects
 				(font
@@ -15504,7 +15498,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "MAX7375AXR425+T"
+		(property "Manufacturer_Part_Number" "MAX7375AXR805+T"
 			(at 44.45 180.34 0)
 			(effects
 				(font
@@ -17540,7 +17534,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "13579d85-48f5-48cd-852f-2d7794a3b66e")
 		(property "Reference" "TP12"
 			(at 210.82 31.4324 0)
@@ -17746,7 +17740,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "36a3ee5e-51cc-4025-a078-da19248b5c5f")
 		(property "Reference" "TP11"
 			(at 210.82 49.2124 0)
@@ -18002,6 +17996,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Part_Number" "93C56"
+			(at 139.7 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "8f187b47-6329-4078-8ac6-5501d30abbd1")
 		)
@@ -18042,7 +18045,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4cf5f93a-7f9a-424f-a05c-d10bd83f214b")
 		(property "Reference" "TP9"
 			(at 210.82 41.5924 0)
@@ -18105,80 +18108,12 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint_Probe")
-		(at 173.99 130.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "57efe127-00c1-4fa7-8c2c-88a0530c8422")
-		(property "Reference" "TP5"
-			(at 177.8 127.9524 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 182.88 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5015_Micro-Minature"
-			(at 179.07 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 179.07 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point (alternative probe-style design)"
-			(at 173.99 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "edf0234e-d727-40da-b63f-ae6a32c4103d")
-		)
-		(instances
-			(project "pc_card"
-				(path "/792da158-0192-445f-a668-7902349a051c"
-					(reference "TP5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint_Probe")
 		(at 99.06 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "71b5cf4a-11b2-4cf2-bcc9-b99122817f97")
 		(property "Reference" "TP6"
 			(at 102.87 122.8724 0)
@@ -18246,7 +18181,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "81f01cea-3be8-490b-98bb-f9f795f330ee")
 		(property "Reference" "TP3"
 			(at 184.15 49.2124 0)
@@ -18315,7 +18250,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "902bc161-1885-4d8f-8cfc-59d5eaf1f747")
 		(property "Reference" "TP4"
 			(at 209.6262 139.1412 90)
@@ -18450,7 +18385,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9cecd072-cf9a-4541-8102-826c9bfeb87a")
 		(property "Reference" "TP7"
 			(at 102.87 125.4124 0)
@@ -18518,7 +18453,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "ade25a2b-ea41-4a72-9eee-362687386bf3")
 		(property "Reference" "TP14"
 			(at 210.82 21.2724 0)
@@ -18586,7 +18521,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c763b579-f72e-4135-af3b-a4a22adf777a")
 		(property "Reference" "TP10"
 			(at 184.15 51.7524 0)
@@ -18722,7 +18657,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e43cd39b-7cec-4d0b-a89b-5cbe0c9c2297")
 		(property "Reference" "TP8"
 			(at 205.74 97.4724 0)
@@ -18790,7 +18725,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "fcc3ac1b-6e8f-442e-a16d-57d7ec7a52f6")
 		(property "Reference" "TP13"
 			(at 210.82 23.8124 0)
