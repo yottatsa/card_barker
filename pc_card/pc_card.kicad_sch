@@ -363,26 +363,28 @@
 				)
 			)
 		)
-		(symbol "Device:Crystal_GND2"
+		(symbol "Device:Crystal_GND24_Small"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "Y"
-				(at 0 5.715 0)
+				(at 1.27 4.445 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "Crystal_GND2"
-				(at 0 3.81 0)
+			(property "Value" "Crystal_GND24_Small"
+				(at 1.27 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
@@ -403,7 +405,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Three pin crystal, GND on pin 2"
+			(property "Description" "Four pin crystal, GND on pins 2 and 4, small symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -430,12 +432,12 @@
 					(hide yes)
 				)
 			)
-			(symbol "Crystal_GND2_0_1"
+			(symbol "Crystal_GND24_Small_0_1"
 				(rectangle
-					(start -1.143 2.54)
-					(end 1.143 -2.54)
+					(start -0.762 -1.524)
+					(end 0.762 1.524)
 					(stroke
-						(width 0.3048)
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -444,7 +446,31 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 0) (xy -1.905 0)
+						(xy -1.27 -0.762) (xy -1.27 0.762)
+					)
+					(stroke
+						(width 0.381)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -0.762) (xy 1.27 0.762)
+					)
+					(stroke
+						(width 0.381)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 -1.905) (xy 1.27 -1.905) (xy 1.27 -1.27)
 					)
 					(stroke
 						(width 0)
@@ -456,55 +482,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.905 -1.27) (xy -1.905 1.27)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -3.81) (xy 0 -3.556)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.905 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.905 1.27) (xy 1.905 -1.27)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -2.286) (xy -2.54 -3.556) (xy 2.54 -3.556) (xy 2.54 -2.286)
+						(xy -1.27 1.27) (xy -1.27 1.905) (xy 1.27 1.905) (xy 1.27 1.27)
 					)
 					(stroke
 						(width 0)
@@ -515,9 +493,9 @@
 					)
 				)
 			)
-			(symbol "Crystal_GND2_1_1"
+			(symbol "Crystal_GND24_Small_1_1"
 				(pin passive line
-					(at -3.81 0 0)
+					(at -2.54 0 0)
 					(length 1.27)
 					(name "1"
 						(effects
@@ -529,14 +507,14 @@
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 0.762 0.762)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 0 -5.08 90)
-					(length 1.27)
+					(at 0 -2.54 90)
+					(length 0.635)
 					(name "2"
 						(effects
 							(font
@@ -547,13 +525,13 @@
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 0.762 0.762)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 3.81 0 180)
+					(at 2.54 0 180)
 					(length 1.27)
 					(name "3"
 						(effects
@@ -565,7 +543,25 @@
 					(number "3"
 						(effects
 							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 2.54 270)
+					(length 0.635)
+					(name "4"
+						(effects
+							(font
 								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 0.762 0.762)
 							)
 						)
 					)
@@ -7193,6 +7189,10 @@
 		(uuid "14d2df7f-9f88-4cc4-a2a5-8a93c5427dbd")
 	)
 	(no_connect
+		(at 190.5 77.47)
+		(uuid "1732dfc0-2c4e-4566-a5d3-c9f7ce3d44d8")
+	)
+	(no_connect
 		(at 99.06 52.07)
 		(uuid "19c9e10d-5474-4fb9-a4d8-69bfd7e25547")
 	)
@@ -7305,7 +7305,7 @@
 		(uuid "b6c697fe-f305-4fa0-a8f1-c71d537f004d")
 	)
 	(no_connect
-		(at 198.12 77.47)
+		(at 195.58 77.47)
 		(uuid "b804148d-bc1d-4dcf-be32-92b083fc7ff3")
 	)
 	(no_connect
@@ -7576,6 +7576,16 @@
 	)
 	(wire
 		(pts
+			(xy 193.04 80.01) (xy 193.04 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37118950-bf97-4661-8ff3-f4a49174cbb1")
+	)
+	(wire
+		(pts
 			(xy 267.97 154.94) (xy 267.97 153.67)
 		)
 		(stroke
@@ -7663,16 +7673,6 @@
 			(type default)
 		)
 		(uuid "509a0575-36af-4373-9dd5-b86ed50bddd9")
-	)
-	(wire
-		(pts
-			(xy 193.04 73.66) (xy 193.04 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "51133bff-6d4e-4522-8826-e350f941afda")
 	)
 	(wire
 		(pts
@@ -8126,16 +8126,6 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 82.55) (xy 193.04 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ac4e442f-558e-427b-9a4a-1a7bd6ea86cf")
-	)
-	(wire
-		(pts
 			(xy 173.99 130.81) (xy 173.99 143.51)
 		)
 		(stroke
@@ -8393,6 +8383,16 @@
 			(type default)
 		)
 		(uuid "ee300e01-e2b9-4dd4-b765-41e2716e8e87")
+	)
+	(wire
+		(pts
+			(xy 193.04 72.39) (xy 193.04 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f18c7b3a-4135-4971-bb29-076ef2e40bec")
 	)
 	(wire
 		(pts
@@ -16938,7 +16938,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Crystal_GND2")
+		(lib_id "Device:Crystal_GND24_Small")
 		(at 193.04 77.47 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -16962,7 +16962,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm"
+		(property "Footprint" "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm"
 			(at 193.04 77.47 0)
 			(effects
 				(font
@@ -16971,7 +16971,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.co.uk/datasheet/2/281/1/SPEC_XRCPB33M868F0L00R0-2580714.pdf"
+		(property "Datasheet" "~"
 			(at 193.04 77.47 0)
 			(effects
 				(font
@@ -16980,7 +16980,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Four pin crystal, GND on pins 2 and 4, small symbol"
 			(at 193.04 77.47 0)
 			(effects
 				(font
@@ -16989,7 +16989,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "XRCPB33M868F0L00R0"
+		(property "Manufacturer_Part_Number" "XRCGB33M868F4M00R0"
 			(at 193.04 77.47 0)
 			(effects
 				(font
@@ -16998,7 +16998,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser Part Number" "81-XRCPB33M868F0L0R0"
+		(property "Mouser Part Number" "81-XRCGB33M868F4M0R0"
 			(at 193.04 77.47 0)
 			(effects
 				(font
@@ -17033,6 +17033,9 @@
 		)
 		(pin "3"
 			(uuid "8fd8628b-93b2-488f-bc73-42a525d01b96")
+		)
+		(pin "4"
+			(uuid "9913d1ca-1407-460d-866e-eeb6cdf8d712")
 		)
 		(instances
 			(project ""
