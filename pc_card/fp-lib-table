@@ -5,4 +5,5 @@
   (lib (name "IC1F-68RD-1.27SF_52")(type "KiCad")(uri "${KIPRJMOD}/Hirose/IC1F-68RD-1.27SF_52.pretty")(options "")(descr ""))
   (lib (name "TPA152DR")(type "Legacy")(uri "${KIPRJMOD}/TPA152DR/TPA152DR.mod")(options "")(descr ""))
   (lib (name "fixtures")(type "KiCad")(uri "${KIPRJMOD}/fixtures.pretty")(options "")(descr ""))
+  (lib (name "SJ1-2533-SMT-TR")(type "KiCad")(uri "${KIPRJMOD}/SJ1-2533-SMT-TR")(options "")(descr ""))
 )

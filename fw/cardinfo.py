@@ -238,8 +238,8 @@ def gen_cis():
             device_info=[0x49, 0x00] # eeprom, device is writable, 250ns; 0 x 512B
         ),
         CISTPL_VERS_1(
-            manufacturer=b"CTI",
-            product_name=b"FMC-98",
+            manufacturer=b"tilde.gay",
+            product_name=b"OPL3",
             lot_number=b"",
             additional=b"",
         ),
