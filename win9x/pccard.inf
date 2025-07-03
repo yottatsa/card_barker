@@ -1,27 +1,23 @@
 
 [Version]
 Signature=$CHICAGO$
-Class=MF
+Class=MultiFunction
 Provider=%String0%
 
 [ClassInstall]
 
 [DestinationDirs]
 DefaultDestDir=10
-COMMAND=13
 
 [Manufacturer]
 %String1%=SECTION_0
 
 [SECTION_0]
 %String2%=TGOPL3.Install,PCMCIA\MATSUSHITA_ELECTRIC_INDUSTRIAL_CO.__LTD.-PANASONIC_SOUND_CARD-1E74
+%String3%=TGOPL3.Install,PCMCIA\TILDE.GAY-OPL3-CFA0
 
 [TGOPL3.Install]
-CopyFiles=COMMAND
 LogConfig=TGOPL3_DEFAULT
-
-[COMMAND]
-oplclone.exe
 
 [TGOPL3_DEFAULT]
 ConfigPriority=NORMAL
@@ -37,4 +33,5 @@ IOConfig=388-38b(3ff::)
 [Strings]
 String0="tilde.gay"
 String1="tilde.gay"
-String2="OPL3"
+String2="Panasonic CF-VEW211 passthru"
+String3="Card Barker OPL3"
