@@ -6,3 +6,4 @@ This is a sample driver that should work with Panasonic CF-VEW211 card (see ../f
 todo
 ----
 - figure out overrides, https://library.thedatadungeon.com/msdn-2000-04/win95ddk/devdoc/live/win98ddk/pnp_0hti.htm
+- check if LogConfig is needed
