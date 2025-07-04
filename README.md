@@ -20,6 +20,11 @@ Project status: devboard is working, card hw rev 2 is working, card hw rev 3 goe
 ![devboard](https://github.com/yottatsa/card_barker/raw/main/devboard/devboard-render.png)
 ![pod adapter](https://github.com/yottatsa/card_barker/raw/main/devboard/fpchp-assembled.png)
 
-Related projects
+## Related projects
 
 * [FMC-98 reverse engineering](https://github.com/AL-255/A2P1)
+
+## License
+
+Code, designs, and original research: CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+Supporting materials: fair use (archived to be protected from bitrot)
