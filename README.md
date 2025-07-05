@@ -11,8 +11,8 @@ Project status: devboard is working, card hw rev 2 is working, card hw rev 3 goe
 ## How to run
 
 1. After assembly, upload `fw/vew211.bpd` using `fw/hsc.zip/burner.exe`;
-2. Enable using `fw/panas13.lzh/panasnd.exe`, it should start responding on `0x0388-0x038b`;
-3. Run `fw/oplclone.zip/oplclone.exe`, it should produce ~460Hz sine.
+2. Enable using `dos/panas13.lzh/panasnd.exe`, it should start responding on `0x0388-0x038b`;
+3. Run `dos/oplclone.zip/oplclone.exe`, it should produce ~460Hz sine.
 4. Under Windows 95 and 98, `win9x` contains the proto-driver that only enables the port.
 
 ## PCBs
