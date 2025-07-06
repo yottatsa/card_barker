@@ -1,0 +1,28 @@
+grep PCMCIA opl3ena.asm -A 1 | grep ';'
+		mov	ax, 270h	; PCMCIA reg 02 val 70: card power on
+		mov	ax, 320h	; PCMCIA reg 03 val 20: io card
+		mov	ax, 360h	; PCMCIA reg 03 val 60: io card & reset
+		mov	ax, 2F0h	; PCMCIA reg 02 val F0:
+		mov	ax, 10E0h	; PCMCIA reg 10 val E0:
+		mov	ax, 1100h	; PCMCIA reg 11 val 00
+					; mem window 0 mapped to E0000h
+		mov	ax, 12E0h	; PCMCIA reg 12 val E0
+		mov	ax, 1300h	; PCMCIA reg 13 val 00
+					; mem window 0 end is E0000h + 4096 = E1000h
+		mov	ax, 1400h	; PCMCIA reg 14 val 00
+		mov	ax, 1540h	; PCMCIA reg 15 val 40: accessing attrib memory
+		mov	ax, 601h	; PCMCIA reg 06 val 01: mem window 0 enable
+		mov	ax, 888h	; PCMCIA reg 08 val 88
+		mov	ax, 903h	; PCMCIA reg 09 val 03
+					; io window 0 is 388h
+		mov	ax, 0A8Bh	; PCMCIA reg 0A val 8B
+		mov	ax, 0B03h	; PCMCIA reg 0B val 03
+					; io window 0 ends at 38Bh
+		mov	ax, 0C60h	; PCMCIA reg 0C val 60
+		mov	ax, 0DA4h	; PCMCIA reg 0D val A4
+		mov	ax, 0E6Eh	; PCMCIA reg 0E val 6E
+		mov	ax, 0FA4h	; PCMCIA reg 0F val A4
+					; io window 1 A460-A46E
+		mov	ax, 700h	; PCMCIA reg 07 val 0
+					; configure io to 8bit and wait-state
+		mov	ax, 6C0h	; PCMCIA reg 06 val C0: enable both io windows

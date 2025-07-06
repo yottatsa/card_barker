@@ -39,7 +39,7 @@ loc_10115:				; CODE XREF: start+10j
 		ror	al, 1
 		and	al, 0C0h
 		mov	cs:regOffset, al
-		mov	ax, 270h	; reg 02 val 70: card power on
+		mov	ax, 270h	; PCMCIA reg 02 val 70: card power on
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -47,7 +47,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 320h	; reg 03 val 20: io card
+		mov	ax, 320h	; PCMCIA reg 03 val 20: io card
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -56,7 +56,7 @@ loc_10115:				; CODE XREF: start+10j
 		mov	dx, 3E1h
 		out	dx, al
 		call	sleepPC98
-		mov	ax, 360h	; reg 03 val 60: io card & reset
+		mov	ax, 360h	; PCMCIA reg 03 val 60: io card & reset
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -64,7 +64,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 2F0h	; reg 02 val F0:
+		mov	ax, 2F0h	; PCMCIA reg 02 val F0:
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -72,7 +72,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 10E0h	; reg 10 val E0:
+		mov	ax, 10E0h	; PCMCIA reg 10 val E0:
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -80,7 +80,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 1100h	; ; reg	11 val 00
+		mov	ax, 1100h	; PCMCIA reg 11 val 00
 					; mem window 0 mapped to E0000h
 		xchg	ah, al
 		mov	dx, 3E0h
@@ -89,7 +89,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 12E0h
+		mov	ax, 12E0h	; PCMCIA reg 12 val E0
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -97,7 +97,8 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 1300h
+		mov	ax, 1300h	; PCMCIA reg 13 val 00
+					; mem window 0 end is E0000h + 4096 = E1000h
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -105,7 +106,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 1400h
+		mov	ax, 1400h	; PCMCIA reg 14 val 00
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -113,7 +114,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 1540h	; reg 15 val 40: accessing attrib memory
+		mov	ax, 1540h	; PCMCIA reg 15 val 40: accessing attrib memory
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -128,7 +129,7 @@ loc_10115:				; CODE XREF: start+10j
 		mov	bl, al		; bl = stored palette mode
 		xor	al, al
 		out	6Ah, al		; reg 6A val 0: enable digital palette mode
-		mov	ax, 601h	; reg 6	val 01:	mem window 0 enable
+		mov	ax, 601h	; PCMCIA reg 06 val 01: mem window 0 enable
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -139,7 +140,7 @@ loc_10115:				; CODE XREF: start+10j
 		mov	ax, seg	attrib
 		mov	es, ax
 		assume es:attrib
-		mov	ax, 888h	; reg 8	val 88
+		mov	ax, 888h	; PCMCIA reg 08 val 88
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -147,8 +148,8 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 903h	; reg 9	val 03
-					; io window 0 is 180h
+		mov	ax, 903h	; PCMCIA reg 09 val 03
+					; io window 0 is 388h
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -156,7 +157,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 0A8Bh	; reg A	val 8B
+		mov	ax, 0A8Bh	; PCMCIA reg 0A val 8B
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -164,7 +165,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 0B03h	; reg B	val 03
+		mov	ax, 0B03h	; PCMCIA reg 0B val 03
 					; io window 0 ends at 38Bh
 		xchg	ah, al
 		mov	dx, 3E0h
@@ -173,7 +174,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 0C60h
+		mov	ax, 0C60h	; PCMCIA reg 0C val 60
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -181,7 +182,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 0DA4h
+		mov	ax, 0DA4h	; PCMCIA reg 0D val A4
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -189,7 +190,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 0E6Eh
+		mov	ax, 0E6Eh	; PCMCIA reg 0E val 6E
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -197,7 +198,8 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 0FA4h	; io window 1 A460-A46E
+		mov	ax, 0FA4h	; PCMCIA reg 0F val A4
+					; io window 1 A460-A46E
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
@@ -205,7 +207,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	ax, 700h	; reg 7	val 0
+		mov	ax, 700h	; PCMCIA reg 07 val 0
 					; configure io to 8bit and wait-state
 		xchg	ah, al
 		mov	dx, 3E0h
@@ -235,7 +237,7 @@ loc_10115:				; CODE XREF: start+10j
 		mov	si, offset CCR0
 		mov	es:(CCR0 - CCR0)[si], 1100000b ; level irq, fci	100000b
 		mov	es:(CCR1+2 - CCR1)[si],	0
-		mov	ax, 6C0h	; reg 6	val C0:	enable both io windows
+		mov	ax, 6C0h	; PCMCIA reg 06 val C0: enable both io windows
 		xchg	ah, al
 		mov	dx, 3E0h
 		or	al, cs:regOffset
