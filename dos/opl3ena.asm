@@ -55,7 +55,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		call	sleepMaybe
+		call	sleepPC98
 		mov	ax, 360h	; reg 03 val 60: io card & reset
 		xchg	ah, al
 		mov	dx, 3E0h
@@ -121,13 +121,13 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	dx, 9A0h
+		mov	dx, 9A0h	; reg 9A0: Read various graphics-related status
 		mov	al, 4
-		out	dx, al
+		out	dx, al		; reg 9A0 val 4: read palette mode
 		in	al, dx
-		mov	bl, al
+		mov	bl, al		; bl = stored palette mode
 		xor	al, al
-		out	6Ah, al
+		out	6Ah, al		; reg 6A val 0: enable digital palette mode
 		mov	ax, 601h	; reg 6	val 01:	mem window 0 enable
 		xchg	ah, al
 		mov	dx, 3E0h
@@ -231,7 +231,7 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		call	sleepMaybe
+		call	sleepPC98
 		mov	si, offset CCR0
 		mov	es:(CCR0 - CCR0)[si], 1100000b ; level irq, fci	100000b
 		mov	es:(CCR1+2 - CCR1)[si],	0
@@ -243,9 +243,9 @@ loc_10115:				; CODE XREF: start+10j
 		xchg	ah, al
 		mov	dx, 3E1h
 		out	dx, al
-		mov	al, bl
-		and	al, 1
-		out	6Ah, al
+		mov	al, bl		; bl is old palette mode
+		and	al, 1		; in bit 0
+		out	6Ah, al		; set old palette mode
 		mov	dx, offset a___enabled ; "...Enabled!\r\n$"
 		mov	ah, 9
 		int	21h		; DOS -	PRINT STRING
@@ -257,18 +257,18 @@ start		endp			; AL = exit code
 
 ; ███████████████ S U B	R O U T	I N E ███████████████████████████████████████
 
+; sleeps for 0.12s
+sleepPC98	proc near		; CODE XREF: start+5Ep	start+203p
+		mov	cx, 50000
 
-sleepMaybe	proc near		; CODE XREF: start+5Ep	start+203p
-		mov	cx, 0C350h
-
-loc_1033B:				; CODE XREF: sleepMaybe+Bj
-		out	5Fh, al
+loc_1033B:				; CODE XREF: sleepPC98+Bj
+		out	5Fh, al		; sleeps for 0.6μs after every instruction
 		out	5Fh, al
 		out	5Fh, al
 		out	5Fh, al
 		loop	loc_1033B
 		retn
-sleepMaybe	endp
+sleepPC98	endp
 
 ; ───────────────────────────────────────────────────────────────────────────
 
